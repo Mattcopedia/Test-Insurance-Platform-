@@ -1,0 +1,34 @@
+node_modules
+pnpm-lock.yaml
+.husky
+
+# Next.js
+.next
+dist
+build
+out
+
+# All workspace node_modules
+apps/web/node_modules
+packages/api-client/node_modules
+packages/auth/node_modules
+packages/config/node_modules
+packages/forms/node_modules
+packages/ui/node_modules
+
+# Lock and log files
+*.lock
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+apps/web/.next
+apps/web/out
+apps/web/build
+
+# Misc
+.turbo
+coverage
+.env*

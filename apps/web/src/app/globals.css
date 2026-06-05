@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+@source "../../../../packages/ui/src/**/*.{ts,tsx}";
+@source "../components/**/*.{ts,tsx}";
+@source "../../app/**/*.{ts,tsx}";
+@source "../hooks/**/*.{ts,tsx}";
+@source "../providers/**/*.{ts,tsx}";
+@source "../components/website/**/*.{ts,tsx}";
+@plugin "tailwindcss-animate";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --background-auth: #d9d9d9;
+
+  /* Brand tokens — confirmed from Figma node 267:832 */
+  --primary: #000000; /* Sign In / Continue CTA — pure black per Figma */
+  --primary-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+body {
+  background: var(--backgroud-auth);
+  color: var(--foreground);
+}
