@@ -1,9 +1,9 @@
-import Link from 'next/link'
 import { Button } from '@wrapa/ui'
+import Link from 'next/link'
 
 export function AboutJoin() {
   return (
-    <section className="bg-white py-14 lg:py-24">
+    <section className="bg-white py-15 lg:py-24">
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
         <div className="bg-[#050306] rounded-[24px] px-8 sm:px-12 lg:px-20 py-14 lg:py-20 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-20">
           {/* Left copy */}
