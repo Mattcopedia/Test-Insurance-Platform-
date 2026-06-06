@@ -8,7 +8,12 @@ export interface MarketingTextProps {
   heading?: string
   body?: string
   className?: string
-  ImageComponent?: React.ElementType
+  ImageComponent?: React.ComponentType<{
+    src: string
+    alt?: string
+    width?: number
+    height?: number
+  }>
   imageSrc: string
 }
 
