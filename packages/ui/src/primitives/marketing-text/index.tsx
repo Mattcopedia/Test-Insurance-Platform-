@@ -6,7 +6,7 @@ const DEFAULT_BODY =
 
 export interface MarketingTextProps {
   heading?: string
-  body: string
+  body?: string
   className?: string
   ImageComponent?: React.ElementType
   imageSrc: string
