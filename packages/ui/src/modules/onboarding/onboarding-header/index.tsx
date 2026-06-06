@@ -94,4 +94,3 @@ function OnboardingHeader({ steps, currentStep, logo }: OnboardingHeaderProps) {
 }
 
 export { OnboardingHeader }
-export type { OnboardingHeaderProps }
