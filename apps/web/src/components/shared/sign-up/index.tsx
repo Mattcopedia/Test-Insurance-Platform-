@@ -100,7 +100,7 @@ export function SignUp({
       <div className="flex w-full flex-col items-center lg:flex-row lg:items-start lg:justify-center lg:gap-35">
         <aside className="hidden shrink-0 mt-12 lg:flex lg:flex-col lg:items-center lg:justify-center lg:px-12">
           <MarketingText
-            imageSrc={MarketingImage}
+            imageSrc={MarketingImage.src}
             ImageComponent={Image}
             heading="Car insurance"
             className="max-w-[500px]"
