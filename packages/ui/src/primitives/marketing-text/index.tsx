@@ -10,7 +10,7 @@ export interface MarketingTextProps {
   className?: string
   ImageComponent?: React.ComponentType<{
     src: string
-    alt?: string
+    alt: string
     width?: number
     height?: number
   }>
@@ -34,7 +34,7 @@ function MarketingText({
         {heading}
       </h1>
 
-      <ImageComponent src={imageSrc} alt="Marketing" width={500} height={500} />
+      {ImageComponent && <ImageComponent src={imageSrc} alt="Marketing" width={500} height={500} />}
 
       <p
         className={cn(
