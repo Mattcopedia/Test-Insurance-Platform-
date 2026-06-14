@@ -32,8 +32,11 @@
     "packages/**/*.{ts,tsx}": [
       "prettier --write"
     ],
-    "**/*.{json,md,yaml}": [
+    "**/*.{json,md}": [
       "prettier --write"
+    ],
+    "**/*.yaml": [
+      "prettier --write --ignore-path .prettierignore"
     ]
   }
 }
