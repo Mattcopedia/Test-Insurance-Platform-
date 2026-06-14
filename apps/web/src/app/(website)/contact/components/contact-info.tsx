@@ -178,8 +178,8 @@ export function ContactInfo() {
             </svg>
           }
           label="Email"
-          value="hello@wrapa.africa"
-          href="mailto:hello@wrapa.africa"
+          value="info@wrapa.africa"
+          href="mailto:info@wrapa.africa"
         />
 
         <InfoItem
