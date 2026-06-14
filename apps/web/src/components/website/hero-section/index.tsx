@@ -14,7 +14,7 @@ export function HeroSection() {
           <div className="flex-1 min-w-0">
             <h1 className="font-serif text-[36px] sm:text-[46px] lg:text-[54px] font-bold leading-[1.3] text-black/80 mb-6 lg:mb-8">
               <span className="text-[#990505]">WRAPA</span>
-              {' — Your Insurance Market Place'}
+              {' = Your Insurance Market Place'}
             </h1>
             <p className="text-[18px] lg:text-[22px] leading-[40px] text-black/80 max-w-[660px] mb-10 lg:mb-14">
               Every day, insurers make decisions that impact their customers. WRAPA enables insurers

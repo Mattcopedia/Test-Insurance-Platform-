@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
-const AVATAR_1 = 'https://www.figma.com/api/mcp/asset/fb265ea4-0e2a-45af-9c6d-06514a9402dd'
-const AVATAR_2 = 'https://www.figma.com/api/mcp/asset/4b20c942-ce1d-454e-90f1-71b7b0f8e4e1'
+const AVATAR_1 = '/assets/icons/Testimonial 1.svg'
+const AVATAR_2 = '/assets/icons/Testimonial 2.svg'
 
 const TESTIMONIALS = [
   {

@@ -1,5 +1,5 @@
-import * as React from 'react'
 import { cn } from '@wrapa/ui'
+import * as React from 'react'
 
 interface InfoItemProps {
   icon: React.ReactNode
@@ -49,7 +49,7 @@ function InfoItem({ icon, label, value, href }: InfoItemProps) {
 const SOCIAL_LINKS = [
   {
     label: 'LinkedIn',
-    href: 'https://linkedin.com/company/wrapa',
+    href: 'https://www.linkedin.com/company/wrapa-insurtech/',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -58,45 +58,45 @@ const SOCIAL_LINKS = [
       </svg>
     ),
   },
-  {
-    label: 'Twitter / X',
-    href: 'https://twitter.com/wrapainsurance',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Instagram',
-    href: 'https://instagram.com/wrapainsurance',
-    icon: (
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden
-      >
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Facebook',
-    href: 'https://facebook.com/wrapainsurance',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-      </svg>
-    ),
-  },
+  // {
+  //   label: 'Twitter / X',
+  //   href: 'https://twitter.com/wrapainsurance',
+  //   icon: (
+  //     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+  //       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  //     </svg>
+  //   ),
+  // },
+  // {
+  //   label: 'Instagram',
+  //   href: 'https://instagram.com/wrapainsurance',
+  //   icon: (
+  //     <svg
+  //       width="20"
+  //       height="20"
+  //       viewBox="0 0 24 24"
+  //       fill="none"
+  //       stroke="currentColor"
+  //       strokeWidth="2"
+  //       strokeLinecap="round"
+  //       strokeLinejoin="round"
+  //       aria-hidden
+  //     >
+  //       <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+  //       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+  //       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  //     </svg>
+  //   ),
+  // },
+  // {
+  //   label: 'Facebook',
+  //   href: 'https://facebook.com/wrapainsurance',
+  //   icon: (
+  //     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+  //       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  //     </svg>
+  //   ),
+  // },
 ]
 
 export function ContactInfo() {
@@ -112,7 +112,7 @@ export function ContactInfo() {
         </h2>
         <p className="text-[16px] lg:text-[18px] leading-[1.7] text-black/60 max-w-[480px]">
           Whether you have a question about insurance products, need support, or want to partner
-          with WRAPA — our team is ready to help.
+          with WRAPA, our team is ready to help.
         </p>
       </div>
 
@@ -136,7 +136,7 @@ export function ContactInfo() {
             </svg>
           }
           label="Office"
-          value="Nairobi, Kenya — Pan-African HQ"
+          value="Lagos, Nigeria, Pan-African HQ"
         />
 
         <InfoItem
@@ -156,8 +156,8 @@ export function ContactInfo() {
             </svg>
           }
           label="Phone"
-          value="+254 700 000 000"
-          href="tel:+254700000000"
+          value="+234 803 858 7446"
+          href="tel:+2348038587446"
         />
 
         <InfoItem
@@ -200,7 +200,7 @@ export function ContactInfo() {
             </svg>
           }
           label="Support Hours"
-          value="Mon – Fri, 8:00 AM – 6:00 PM EAT"
+          value="Mon – Fri, 8:00 AM – 6:00 PM WAT"
         />
       </div>
 

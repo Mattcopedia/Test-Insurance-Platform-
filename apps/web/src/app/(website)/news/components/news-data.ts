@@ -27,7 +27,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     content: [
       'The surge in pension fund assets across Nigeria has prompted financial analysts to call for deeper integration between pension managers and the broader insurance ecosystem. With assets under management crossing ₦19 trillion in 2023, the pension sector is no longer a passive player in the financial markets.',
       'WRAPA, Africa\'s leading insurance marketplace, believes this convergence presents a once-in-a-decade opportunity for product innovation. "When you combine annuity products with long-term health and life cover, you create a holistic financial safety net," noted a senior analyst at the firm.',
-      'Regulatory clarity from the National Pension Commission (PenCom) and the National Insurance Commission (NAICOM) is expected to provide a joint framework by Q1 2024, which would allow pension fund administrators to co-distribute certain insurance products on platforms like WRAPA.',
+      'Regulatory clarity from the National Pension Commission (PenCom) and the National Insurance Commission (NAICOM) is expected to provide a joint framework by Q1 2026, which would allow pension fund administrators to co-distribute certain insurance products on platforms like WRAPA.',
     ],
   },
   {
@@ -106,7 +106,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     author: 'WRAPA Editorial',
     content: [
       'WRAPA has announced the close of a $4 million seed funding round led by Kepple Africa Ventures, with participation from Future Africa, Enza Capital, and a number of strategic angel investors from the insurance and fintech sectors.',
-      "The funds will accelerate the expansion of WRAPA's marketplace into Ghana, Rwanda, and Zambia by Q2 2024, while also deepening the product suite available to users — including parametric agriculture insurance, micro health products, and a mobile-first group life offering for SMEs.",
+      "The funds will accelerate the expansion of WRAPA's marketplace into Ghana, Rwanda, and Zambia by Q2 2026, while also deepening the product suite available to users — including parametric agriculture insurance, micro health products, and a mobile-first group life offering for SMEs.",
       'CEO Kelechi Okoro described the round as validation of the team\'s belief that Africa\'s insurance gap — where fewer than 5% of the population holds any formal coverage — is solvable through technology. "Every dollar of this round goes toward making coverage faster, cheaper, and more trusted," Okoro said.',
     ],
   },

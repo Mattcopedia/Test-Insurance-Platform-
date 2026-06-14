@@ -14,13 +14,14 @@ const PRODUCT_LINKS = [
   'Cyber insurance',
 ]
 const LEGAL_LINKS = ['End-user policy', 'Privacy policy', 'Terms of use', 'Cookies', 'Security']
-const SOCIAL_LINKS = ['LinkedIn', 'Twitter', 'Facebook', 'Instagram']
+// const SOCIAL_LINKS = ['LinkedIn', 'Twitter', 'Facebook', 'Instagram']
+const SOCIAL_LINKS = ['LinkedIn']
 
 function FooterLogo() {
   return (
     <Link href="/" className="flex items-center gap-1">
       <span className="font-bold text-xl text-white tracking-tight leading-none">
-        WRAPA<sup className="text-[8px] font-medium align-super ml-[1px]">™</sup>
+        WRAPA<sup className="text-[8px] font-medium align-super ml-px">™</sup>
       </span>
     </Link>
   )
@@ -61,10 +62,12 @@ export function Footer() {
           </p>
 
           {/* Subscribe Form */}
-          <div className="flex flex-col sm:flex-row gap-3 max-w-[900px]">
-            <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-[10px] h-[60px] flex items-center px-5">
+          <div className="flex flex-col sm:flex-row gap-3 w-full max-w-[900px]">
+            <div className="w-full sm:flex-1 bg-white/90 backdrop-blur-sm rounded-[10px] h-[60px] flex items-center px-5">
               <input
                 type="email"
+                name="subscribe-email"
+                autoComplete="email"
                 placeholder="Enter email"
                 className="bg-transparent w-full text-black/50 text-[18px] lg:text-[22px] outline-none placeholder:text-black/40"
               />
@@ -105,7 +108,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <FooterLogo />
-          <p className="text-white/60 text-[18px]">© 2024 WRAPA. All Rights Reserved.</p>
+          <p className="text-white/60 text-[18px]">© 2026 WRAPA. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

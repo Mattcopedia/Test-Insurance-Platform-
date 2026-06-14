@@ -1,10 +1,10 @@
 import Image from 'next/image'
 
 const API_BG = 'https://www.figma.com/api/mcp/asset/7db783be-8402-49a8-a309-c22876ad8b87'
-const API_CARD_IMAGE = 'https://www.figma.com/api/mcp/asset/42815a6f-796d-4201-92e1-ce3c61174479'
-const API_ICON = 'https://www.figma.com/api/mcp/asset/b944b1d2-34c2-4b89-ace0-a09017949308'
-const UX_ICON = 'https://www.figma.com/api/mcp/asset/3dc9d517-4276-4483-a68b-2fa725bdaa4e'
-const SUPPORT_ICON = 'https://www.figma.com/api/mcp/asset/af1d24e6-0698-4bd7-b8d7-fc01d61e414d'
+const API_CARD_IMAGE = '/assets/images/codeSandBox.png'
+const API_ICON = '/assets/icons/apiIcon.png'
+const UX_ICON = '/assets/icons/UX Icon.png'
+const SUPPORT_ICON = '/assets/icons/technical-support.png'
 
 export function ApiSection() {
   return (

@@ -22,7 +22,7 @@ export function AboutJoin() {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 shrink-0">
             <Button size="md" fullWidth={false} asChild>
-              <Link href="/sign-up">Get started — it&apos;s free</Link>
+              <Link href="/sign-up">Get started, it&apos;s free</Link>
             </Button>
             <Button variant="outline" size="md" fullWidth={false} asChild>
               <Link href="/contact">Talk to our team</Link>

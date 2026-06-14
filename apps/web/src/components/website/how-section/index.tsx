@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
-import Image from 'next/image'
 import { cn } from '@wrapa/ui'
+import Image from 'next/image'
+import { useState } from 'react'
 
-const HOW_IMAGE = 'https://www.figma.com/api/mcp/asset/2e1eff68-8c25-479b-b912-7aa2818a5bb3'
+const HOW_IMAGE = '/assets/images/Insurance Policy.png'
 
 type TabId = 'buying' | 'management' | 'claims'
 

@@ -4,21 +4,21 @@ const VALUES = [
   {
     title: 'Customer-First',
     description:
-      'Every product decision starts with the customer. We build for the person on the other end — not the institution.',
+      'Every product decision starts with the customer. We build for the person on the other end  not the institution.',
     accent: 'bg-[#fef2f2]',
     border: 'border-[#990505]/20',
   },
   {
     title: 'Radical Transparency',
     description:
-      'Insurance has long been opaque. WRAPA surfaces the terms, the exclusions, the scores — so customers can choose with eyes wide open.',
+      'Insurance has long been opaque. WRAPA surfaces the terms, the exclusions, the scores  so customers can choose with eyes wide open.',
     accent: 'bg-[#f0f4ff]',
     border: 'border-[#002046]/20',
   },
   {
     title: 'Technology-Driven',
     description:
-      'We believe the best insurance experiences are built on great software — algorithms that match, APIs that scale, and UX that does not get in the way.',
+      'We believe the best insurance experiences are built on great software  algorithms that match, APIs that scale, and UX that does not get in the way.',
     accent: 'bg-[#f0faf4]',
     border: 'border-[#166534]/20',
   },
@@ -32,14 +32,14 @@ const VALUES = [
   {
     title: 'Trust & Security',
     description:
-      'We handle sensitive financial and health data. We take that responsibility seriously — with bank-grade security, PASETO-based auth, and rigorous audits.',
+      'We handle sensitive financial and health data. We take that responsibility seriously  with bank-grade security, PASETO-based auth, and rigorous audits.',
     accent: 'bg-[#fdf4ff]',
     border: 'border-[#6b21a8]/20',
   },
   {
     title: 'Speed to Resolution',
     description:
-      'Whether it is a claim, a policy change, or a customer query — we obsess over time-to-resolution. Every hour saved matters.',
+      'Whether it is a claim, a policy change, or a customer query we obsess over time-to-resolution. Every hour saved matters.',
     accent: 'bg-[#fff1f2]',
     border: 'border-[#be123c]/20',
   },

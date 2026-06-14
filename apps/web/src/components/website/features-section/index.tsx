@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 const INSURANCE_SCORE_BG =
   'https://www.figma.com/api/mcp/asset/c9fb8043-a3c8-4bc5-858e-de5033722d21'
-const AGGREGATOR_IMAGE = 'https://www.figma.com/api/mcp/asset/3a5568cc-34b5-4c5b-aa19-79ca646259f7'
-const CLAIMS_IMAGE = 'https://www.figma.com/api/mcp/asset/cbf9ddcf-6083-4291-9e25-0edfed44aae8'
+const AGGREGATOR_IMAGE = '/assets/images/InsuranceAggregator.png'
+const CLAIMS_IMAGE = '/assets/images/claimsProcessing.png'
 
 export function FeaturesSection() {
   return (

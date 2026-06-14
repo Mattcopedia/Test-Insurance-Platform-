@@ -3,17 +3,9 @@
 import { useForm, z } from '@wrapa/forms'
 import { Button, TextField, cn } from '@wrapa/ui'
 import * as React from 'react'
-
-// ── Zod schema ────────────────────────────────────────────────────────────────
-
-const contactSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  email: z.string().email('Enter a valid email address'),
-  subject: z.string().min(1, 'Subject is required'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-})
-
-type ContactFormData = z.infer<typeof contactSchema>
+import { submitContactForm } from '@/services/contact'
+import { contactSchema } from '@/services/contact/schema'
+import type { ContactFormData } from '@/services/contact/type'
 
 // ── Inline zod resolver (same pattern used across the codebase) ───────────────
 
@@ -37,6 +29,8 @@ function zodResolver<T extends z.ZodTypeAny>(schema: T) {
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export function ContactForm() {
+  const [submitError, setSubmitError] = React.useState<string | null>(null)
+
   const {
     register,
     handleSubmit,
@@ -47,9 +41,14 @@ export function ContactForm() {
     defaultValues: { name: '', email: '', subject: '', message: '' },
   })
 
-  function onSubmit(data: ContactFormData) {
-    console.log('[ContactForm] submitted:', data)
-    reset()
+  async function onSubmit(data: ContactFormData) {
+    setSubmitError(null)
+    const result = await submitContactForm(data)
+    if (result.success) {
+      reset()
+    } else {
+      setSubmitError(result.message)
+    }
   }
 
   return (
@@ -133,6 +132,13 @@ export function ContactForm() {
         {isSubmitSuccessful && (
           <p className="text-[16px] text-green-600 font-medium">
             Message sent! We&apos;ll be in touch soon.
+          </p>
+        )}
+
+        {/* Submission error */}
+        {submitError && (
+          <p role="alert" className="text-[16px] text-red-500 font-medium">
+            {submitError}
           </p>
         )}
 

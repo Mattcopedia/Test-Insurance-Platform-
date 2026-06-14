@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  transpilePackages: ['@wrapa/ui', '@wrapa/forms'],
+  transpilePackages: ['@wrapa/ui', '@wrapa/forms', '@wrapa/api-client'],
   images: {
     // Figma CDN assets require auth and cannot be optimised server-side.
     // Switch to unoptimized until permanent production assets are in place.

@@ -14,7 +14,13 @@ const NAV_LINKS = [
 
 function WrapLogo({ className }: { className?: string }) {
   return (
-    <Link href="/" className={cn('flex items-center gap-2.5', className)}>
+    <Link
+      href="/"
+      className={cn(
+        'flex flex-col items-start gap-1 lg:flex-row lg:items-center lg:gap-2.5',
+        className
+      )}
+    >
       <Image
         src="/assets/icons/Logo.png"
         alt="WRAPA Logo"
@@ -22,11 +28,9 @@ function WrapLogo({ className }: { className?: string }) {
         height={150}
         className="shrink-0"
       />
-      <div className="flex flex-col leading-none">
-        <span className="text-[10px] lg:text-[11px] text-black/50 font-medium tracking-wide mt-0.5 whitespace-nowrap">
-          LOCAL BRAND · INTERNATIONAL COVER
-        </span>
-      </div>
+      <span className="text-[10px] lg:text-[11px] text-black/50 font-medium tracking-wide whitespace-nowrap">
+        LOCAL BRAND · INTERNATIONAL COVER
+      </span>
     </Link>
   )
 }
@@ -54,14 +58,14 @@ export function Navbar() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* <div className="hidden lg:flex items-center gap-4">
             <Button variant="ghost" size="md" fullWidth={false} asChild>
               <Link href="/login">Log in</Link>
             </Button>
             <Button variant="outline" size="md" fullWidth={false} asChild>
               <Link href="/register">Sign up</Link>
             </Button>
-          </div>
+          </div> */}
 
           {/* Mobile Hamburger */}
           <button

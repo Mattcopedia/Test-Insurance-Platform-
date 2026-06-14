@@ -1,45 +1,83 @@
 import { cn } from '@wrapa/ui'
 import Image from 'next/image'
-
+const DirectorAvatar = '/assets/images/DirectorAvatar.png'
+const OfeimunAvatar = '/assets/images/MathiasAvatar.png'
+const ValOjumahAvatar = '/assets/images/ValOjumahAvatar.png'
+const JoshuaAvatar = '/assets/images/JoshuaAvatar.png'
+const BigRukAvatar = '/assets/images/BigRukAvatar.png'
+const PaulAvatar = '/assets/images/PaulAvatar.png'
+const KingsleyAvatar = '/assets/images/KingsleyAvatar.png'
 const TEAM = [
+  {
+    name: 'Odinaka Joshua Chioma',
+    role: 'CEO',
+    photo: JoshuaAvatar,
+    bio: 'Joshua Chioma is a Former Software Engineer at Microsoft. He is a Technical Lead and Senior Software Engineer with 9+ years of experience building scalable, high-performance backend systems across fintech, banking, e-commerce, and enterprise platforms.',
+    initials: 'OJ',
+    bg: 'bg-[#1e40af]',
+  },
   {
     name: 'Frank Njiiri',
     role: 'Executive Director',
     org: 'Wrapa Insurtech East Africa Limited',
     bio: "Leads WRAPA's expansion across East Africa, driving strategic partnerships and growth in the region's insurance market.",
-    photo:
-      'https://res.cloudinary.com/dxpnod1bu/image/upload/v1780681756/executive_director_zobo7x.jpg',
+    photo: DirectorAvatar,
     initials: 'FN',
     bg: 'bg-[#002046]',
   },
   {
     name: 'Paul Ehimen',
-    role: 'Co-founder & CEO',
-    bio: 'Former Head of Partnerships at Oil and Gas. Building WRAPA to solve the problem he lived firsthand.',
+    photo: PaulAvatar,
+    role: 'Executive Director & Co-Founder',
+    bio: 'Paul E. Ehimen is a co- founder and executive director of Wrapa ltd. He graduated from the University of Benin with a degree in Industrial Physics and also holds a Master of Business Management (MBM) from Metropolitan London business school.Mr Ehimen is an oil and gas professional specializing in business, commercial, project management and local content development. ',
     initials: 'PE',
     bg: 'bg-[#002046]',
   },
   {
-    name: 'Bruno',
-    role: 'Co-founder & CTO',
+    name: 'Kingsley Chukwuka',
+    photo: KingsleyAvatar,
+    role: 'CFO & Co-founder',
+    bio: 'Kingsley Chukwuka, ACA is a seasoned finance and business development professional with over 18 years of experience spanning accounting, audit, taxation, logistics, oil & gas, and corporate strategy. As a Chartered Accountant and business leader, he has successfully led financial management, business growth initiatives, multimillion-dollar project financing, and cross-border logistics operations, bringing a strong blend of commercial acumen, operational excellence, and strategic leadership.',
+    initials: 'KC',
+    bg: 'bg-[#002046]',
+  },
+  {
+    name: 'Bruno Otakhogbogie',
+    role: 'Executive Director and CTO',
     bio: 'Software Engineer ',
-    initials: 'AM',
+    initials: 'BO',
     bg: 'bg-[#990505]',
   },
   {
-    name: 'Rukevwe Ojumah',
-    role: 'Co Founder',
-    bio: 'FIRS Tax Officer and a tax consultant.',
-    initials: 'RO',
+    name: 'Oghenerukevwe Ojumah',
+    photo: BigRukAvatar,
+    role: 'Executive Director & Co-Founder',
+    bio: 'A graduate of Economics from the University of Houston, Texas, [Your Name] is a seasoned business professional, serial entrepreneur, and co-founder of WRAPA, an innovative technology-driven platform focused on transforming access to insurance and related financial services in Nigeria and across Africa.With over a decade of experience in the insurance industry, he built a distinguished career spanning strategic planning, business development, digital transformation, and e-business marketing',
+    initials: 'OO',
     bg: 'bg-[#166534]',
   },
-
   {
-    name: 'Joshua',
-    role: 'Engineering Head and Backend Developer',
-    bio: 'Former Software Engineer at Microsoft. Ensures WRAPA operates at the highest standard across all markets.',
-    initials: 'JE',
+    name: 'Omonigho Val Ojumah',
+    role: 'Chairman',
+    photo: ValOjumahAvatar,
+    bio: 'Val Ojumah is a distinguished insurance executive and transformational business leader with more than three decades of experience in insurance brokerage, life insurance, strategic management, and digital innovation. A former Managing Director and CEO of FBN Insurance Limited, he successfully led the company from inception to become one of Nigeria’s leading life insurance institutions. Recognized as Africa’s Insurance CEO of the Year 2020, Ojumah has built a reputation for driving growth.',
+    initials: 'OV',
+    bg: 'bg-[#166534]',
+  },
+  {
+    name: 'Ofeimun Mathias Olumese',
+    role: 'Head of IT',
+    photo: OfeimunAvatar,
+    bio: 'Ofeimun Mathias Olumese is a Software Engineer with 4+ years of experience building scalable, production-grade web and mobile applications primarily in healthcare and finTech products.As a Doctor of Pharmacy (PharmD), I have extensive experience in pharmacotherapy and patient counseling,I bring a rare mix of clinical insight and engineering depth, allowing me to design systems that are not only technically sound but also reliable, secure, and genuinely user-centric.',
     bg: 'bg-[#1e40af]',
+    initials: 'OM',
+  },
+  {
+    name: 'Victor Onyegbado',
+    role: 'CLO',
+    bio: '',
+    initials: 'VO',
+    bg: 'bg-[#166534]',
   },
 ]
 

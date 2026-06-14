@@ -14,7 +14,7 @@ export function AboutMission() {
             <p className="text-[17px] lg:text-[20px] leading-[1.8] text-black/70">
               WRAPA exists to remove the barriers between people and the financial protection they
               deserve. We do this by building the technology that connects insurers, brokers, HMOs,
-              and customers on a single, transparent platform — so that getting insured is as simple
+              and customers on a single, transparent platform so that getting insured is as simple
               as sending a message.
             </p>
             <p className="text-[17px] lg:text-[20px] leading-[1.8] text-black/70">
@@ -34,8 +34,8 @@ export function AboutMission() {
             </h2>
             <p className="text-[17px] lg:text-[20px] leading-[1.8] text-black/70">
               We envision a continent where every individual, business, and enterprise can access
-              the right insurance product at the right price — powered by algorithms, driven by
-              data, and delivered with empathy.
+              the right insurance product at the right price powered by algorithms, driven by data,
+              and delivered with empathy.
             </p>
             <p className="text-[17px] lg:text-[20px] leading-[1.8] text-black/70">
               By 2030, WRAPA aims to be the infrastructure layer that every African insurer, HMO,

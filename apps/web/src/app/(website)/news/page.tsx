@@ -1,13 +1,14 @@
 import { PageHeroSection } from '@/components/website/page-hero-section'
-import { NewsFeatured } from './components/news-featured'
+import { SponsoredAdsSection } from '@/components/website/sponsored-ads-section'
 import { NewsCategoryFilter } from './components/news-category-filter'
-import { NewsPagination } from './components/news-pagination'
 import { FEATURED_ARTICLE } from './components/news-data'
+import { NewsFeatured } from './components/news-featured'
+import { NewsPagination } from './components/news-pagination'
 
 export const metadata = {
   title: 'News — WRAPA',
   description:
-    "Stay updated with the latest news, insights, and announcements from WRAPA — Africa's insurance marketplace.",
+    "Stay updated with the latest news, insights, and announcements from WRAPA  Africa's insurance marketplace.",
 }
 
 export default function NewsPage() {
@@ -16,7 +17,7 @@ export default function NewsPage() {
       <PageHeroSection
         eyebrow="WRAPA News"
         title="Insights, updates & stories"
-        subtitle="The latest from Africa's fastest-growing insurance platform — industry news, product launches, regulatory updates, and more."
+        subtitle="The latest from Africa's fastest-growing insurance platform  industry news, product launches, regulatory updates, and more."
       />
 
       <div className="bg-white">
@@ -44,6 +45,9 @@ export default function NewsPage() {
           <NewsPagination currentPage={1} totalPages={4} />
         </div>
       </div>
+
+      {/* Sponsored ads from partner insurers / HMOs */}
+      <SponsoredAdsSection />
     </>
   )
 }
