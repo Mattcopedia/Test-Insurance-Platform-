@@ -5,7 +5,7 @@ import { useForm, z, zodResolver } from '@wrapa/forms'
 import { QuoteStepWrapper } from './quote-step-wrapper'
 
 const schema = z.object({
-  gender: z.enum(['male', 'female'], { required_error: 'Please select your gender' }),
+  gender: z.enum(['male', 'female'], { error: 'Please select your gender' }),
   dobDay: z.string().min(1, 'Day required'),
   dobMonth: z.string().min(1, 'Month required'),
   dobYear: z.string().length(4, 'Enter 4-digit year'),

@@ -5,9 +5,18 @@ import { useForm, z, zodResolver } from '@wrapa/forms'
 import { QuoteStepWrapper } from './quote-step-wrapper'
 
 const schema = z.object({
-  hasSpouse: z.boolean({ required_error: 'Please answer this question' }),
-  hasChildren: z.boolean({ required_error: 'Please answer this question' }),
-  isEmployed: z.boolean({ required_error: 'Please answer this question' }),
+  hasSpouse: z.boolean({
+    error: (issue) =>
+      issue.input === undefined ? 'Please answer this question' : 'Please answer this question',
+  }),
+  hasChildren: z.boolean({
+    error: (issue) =>
+      issue.input === undefined ? 'Please answer this question' : 'Please answer this question',
+  }),
+  isEmployed: z.boolean({
+    error: (issue) =>
+      issue.input === undefined ? 'Please answer this question' : 'Please answer this question',
+  }),
   annualIncome: z.string().min(1, 'Annual income is required'),
 })
 

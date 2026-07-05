@@ -5,9 +5,12 @@ import { useForm, z, zodResolver } from '@wrapa/forms'
 import { QuoteStepWrapper } from './quote-step-wrapper'
 
 const schema = z.object({
-  hasSpouseDependent: z.boolean({ required_error: 'Please answer this question' }),
+  hasSpouseDependent: z.boolean({
+    error: (issue) =>
+      issue.input === undefined ? 'Please answer this question' : 'Please answer this question',
+  }),
   numChildren: z.string().min(1, 'Required'),
-  preExistingConditions: z.array(z.string()).default([]),
+  preExistingConditions: z.array(z.string()),
   preferredCounty: z.string().min(1, 'Please enter your preferred county'),
 })
 
