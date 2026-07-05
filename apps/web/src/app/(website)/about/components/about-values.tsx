@@ -1,4 +1,7 @@
+'use client'
+
 import { cn } from '@wrapa/ui'
+import { useInView } from '@/hooks/use-in-view'
 
 const VALUES = [
   {
@@ -45,12 +48,42 @@ const VALUES = [
   },
 ]
 
+function ValueCard({ value, index }: { value: (typeof VALUES)[number]; index: number }) {
+  const { ref, isInView } = useInView()
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        'rounded-[18px] border p-8 lg:p-10 flex flex-col gap-4',
+        'transition-[opacity,transform] duration-1000 ease-out',
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10',
+        value.accent,
+        value.border
+      )}
+      style={{ transitionDelay: isInView ? `${Math.min((index % 3) * 80, 300)}ms` : '0ms' }}
+    >
+      <h3 className="font-serif text-[22px] lg:text-[28px] font-bold text-black/80 leading-[1.3]">
+        {value.title}
+      </h3>
+      <p className="text-[15px] lg:text-[18px] leading-[1.7] text-black/60">{value.description}</p>
+    </div>
+  )
+}
+
 export function AboutValues() {
+  const { ref: headingRef, isInView: headingInView } = useInView()
+
   return (
     <section className="bg-white py-14 lg:py-24">
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
         {/* Section heading */}
-        <div className="mb-10 lg:mb-16">
+        <div
+          ref={headingRef}
+          className={cn(
+            'mb-10 lg:mb-16 transition-[opacity,transform] duration-1000 ease-out',
+            headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          )}
+        >
           <h2 className="font-serif text-[36px] sm:text-[48px] lg:text-[60px] font-bold text-black/80 leading-[1.2] mb-4">
             What we stand for
           </h2>
@@ -61,22 +94,8 @@ export function AboutValues() {
 
         {/* Values grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {VALUES.map((value) => (
-            <div
-              key={value.title}
-              className={cn(
-                'rounded-[18px] border p-8 lg:p-10 flex flex-col gap-4',
-                value.accent,
-                value.border
-              )}
-            >
-              <h3 className="font-serif text-[22px] lg:text-[28px] font-bold text-black/80 leading-[1.3]">
-                {value.title}
-              </h3>
-              <p className="text-[15px] lg:text-[18px] leading-[1.7] text-black/60">
-                {value.description}
-              </p>
-            </div>
+          {VALUES.map((value, i) => (
+            <ValueCard key={value.title} value={value} index={i} />
           ))}
         </div>
       </div>

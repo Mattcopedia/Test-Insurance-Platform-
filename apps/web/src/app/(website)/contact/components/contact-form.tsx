@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useForm, z } from '@wrapa/forms'
 import { Button, TextField, cn } from '@wrapa/ui'
@@ -6,6 +6,7 @@ import * as React from 'react'
 import { submitContactForm } from '@/services/contact'
 import { contactSchema } from '@/services/contact/schema'
 import type { ContactFormData } from '@/services/contact/type'
+import { useInView } from '@/hooks/use-in-view'
 
 // ── Inline zod resolver (same pattern used across the codebase) ───────────────
 
@@ -30,6 +31,7 @@ function zodResolver<T extends z.ZodTypeAny>(schema: T) {
 
 export function ContactForm() {
   const [submitError, setSubmitError] = React.useState<string | null>(null)
+  const { ref, isInView } = useInView()
 
   const {
     register,
@@ -52,7 +54,14 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-white rounded-[20px] shadow-[0px_4px_160px_0px_rgba(0,0,0,0.08)] p-8 lg:p-12">
+    <div
+      ref={ref}
+      className={cn(
+        'bg-white rounded-[20px] shadow-[0px_4px_160px_0px_rgba(0,0,0,0.08)] p-8 lg:p-12',
+        'transition-[opacity,transform] duration-1000 ease-out',
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      )}
+    >
       <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-black/80 leading-[1.2] mb-2">
         Send us a message
       </h2>
@@ -61,7 +70,7 @@ export function ContactForm() {
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5 lg:gap-6">
-        {/* Name + Email — side by side on tablet+ */}
+        {/* Name + Email side by side on tablet+ */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6">
           <TextField
             label="Full Name"
@@ -88,7 +97,7 @@ export function ContactForm() {
           {...register('subject')}
         />
 
-        {/* Message — textarea, styled to match TextField */}
+        {/* Message textarea, styled to match TextField */}
         <div className="flex w-full flex-col gap-[12px]">
           <label
             htmlFor="contact-message"

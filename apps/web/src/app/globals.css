@@ -7,13 +7,59 @@
 @source "../components/website/**/*.{ts,tsx}";
 @plugin "tailwindcss-animate";
 
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Explicit utility — more reliable than @theme-only registration in Tailwind v4 */
+@utility animate-marquee-left {
+  animation: marquee-left 45s linear infinite;
+}
+
+.testimonials-marquee-track {
+  animation: marquee-left 45s linear infinite;
+}
+
+.testimonials-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-marquee-track {
+    animation: none;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --background-auth: #d9d9d9;
 
-  /* Brand tokens — confirmed from Figma node 267:832 */
-  --primary: #000000; /* Sign In / Continue CTA — pure black per Figma */
+  /* Brand tokens confirmed from Figma node 267:832 */
+  --primary: #000000; /* Sign In / Continue CTA pure black per Figma */
   --primary-foreground: #ffffff;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
@@ -28,6 +74,9 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-marquee-left: marquee-left 55s linear infinite;
 }
 
 @media (prefers-color-scheme: dark) {

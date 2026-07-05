@@ -1,7 +1,7 @@
 'use client'
 
-import { Map, Marker } from 'react-map-gl/mapbox'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import { Map, Marker } from 'react-map-gl/mapbox'
 
 const OFFICE_LAT = 6.4474
 const OFFICE_LNG = 3.4548
@@ -38,7 +38,7 @@ export default function ContactMapCanvas({ token }: ContactMapCanvasProps) {
           </div>
           <div className="bg-white rounded-[10px] px-4 py-2 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.12)]">
             <p className="font-bold text-[14px] lg:text-[16px] text-black/80 whitespace-nowrap">
-              WRAPA HQ — Lagos, Nigeria
+              WRAPA HQ, Lagos, Nigeria
             </p>
           </div>
         </div>

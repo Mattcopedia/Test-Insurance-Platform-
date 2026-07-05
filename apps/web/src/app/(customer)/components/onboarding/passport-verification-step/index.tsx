@@ -1,9 +1,9 @@
-'use client'
+﻿'use client'
 
 import { useForm, z } from '@wrapa/forms'
 import { OnboardingNavButtons, TextField } from '@wrapa/ui'
 
-// ── Schema — combines fields from Figma nodes 937-1413 + 949-2708 + 949-2815 ──
+// ── Schema combines fields from Figma nodes 937-1413 + 949-2708 + 949-2815 ──
 
 const passportSchema = z.object({
   passportNumber: z.string().min(1, 'Passport number is required'),

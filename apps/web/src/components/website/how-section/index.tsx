@@ -1,17 +1,18 @@
-'use client'
+﻿'use client'
 
 import { cn } from '@wrapa/ui'
 import Image from 'next/image'
 import { useState } from 'react'
+import { useInView } from '@/hooks/use-in-view'
 
 const HOW_IMAGE = '/assets/images/Insurance Policy.png'
 
 type TabId = 'buying' | 'management' | 'claims'
 
 const TABS: { id: TabId; label: string }[] = [
-  { id: 'buying', label: 'Buying Insurance' },
+  { id: 'buying', label: 'Finding a Plan' },
   { id: 'management', label: 'Management' },
-  { id: 'claims', label: 'Claim processing' },
+  { id: 'claims', label: 'Claims & Pre-auth' },
 ]
 
 const TAB_CONTENT: Record<
@@ -19,35 +20,35 @@ const TAB_CONTENT: Record<
   { heading: string; description: string; points: string[]; image: string }
 > = {
   buying: {
-    heading: 'Buying Insurance policy',
+    heading: 'Finding the right insurance or health plan',
     description:
-      "Our state-of-the-art algorithms are your trusty guides, meticulously scouring the landscape to unearth and elevate the insurance plans that are not just suitable but utterly tailored to your individual needs. We're in the business of making sure you don't just get coverage but get it right.",
+      "Our state-of-the-art algorithms scour the market to surface insurance policies and HMO health plans that are genuinely tailored to your needs not just the most popular ones. Whether you're buying individual cover, a group scheme, or an HMO plan for your family, we'll match you with the right option.",
     points: [
-      'Algorithms that match plans to your specific needs',
-      'Tie-ups with 40+ insurance companies',
-      'Get a pre-negotiated highest discount',
+      'Smart matching across insurance policies and HMO plans',
+      'Partnerships with 40+ insurers and health plan providers',
+      'Pre-negotiated discounts no haggling required',
     ],
     image: HOW_IMAGE,
   },
   management: {
-    heading: 'Policy Management',
+    heading: 'Policy & Plan Management',
     description:
-      'Manage all your insurance policies in one centralised dashboard. Track renewals, update coverage, and stay informed about every policy across all your insurance providers with ease.',
+      'Manage all your insurance policies and HMO health plans from a single centralised dashboard. Track renewals, update coverage, view your benefits utilisation, and stay on top of every plan across all your providers in one place.',
     points: [
-      'Centralised policy dashboard',
-      'Automated renewal reminders',
-      'Easy policy updates and modifications',
+      'Unified dashboard for insurance and HMO plans',
+      'Automated renewal and benefits reminders',
+      'Easy policy updates and member modifications',
     ],
     image: HOW_IMAGE,
   },
   claims: {
-    heading: 'Claim Processing',
+    heading: 'Claims Processing &amp; HMO Pre-Authorisation',
     description:
-      'File and track your insurance claims with our streamlined digital process. Get faster resolutions and real-time status updates so you always know where your claim stands.',
+      'File insurance claims or request HMO pre-authorisation digitally in minutes. Get real-time status updates so you always know exactly where your request stands no hold music, no lost paperwork.',
     points: [
-      'Digital claim filing in minutes',
-      'Real-time claim status tracking',
-      'Dedicated claims support team',
+      'Digital claim filing and pre-auth requests in minutes',
+      'Real-time status tracking for claims and pre-authorisations',
+      'Dedicated support team for insurance and HMO queries',
     ],
     image: HOW_IMAGE,
   },
@@ -56,17 +57,26 @@ const TAB_CONTENT: Record<
 export function HowSection() {
   const [activeTab, setActiveTab] = useState<TabId>('buying')
   const content = TAB_CONTENT[activeTab]
+  const { ref, isInView } = useInView()
 
   return (
     <section className="bg-white py-14 lg:py-24">
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
         {/* Section Heading */}
-        <div className="mb-10 lg:mb-14">
+        <div
+          ref={ref}
+          className={cn(
+            'mb-10 lg:mb-14',
+            'transition-[opacity,transform] duration-1000 ease-out',
+            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          )}
+        >
           <h2 className="font-serif text-[40px] sm:text-[50px] lg:text-[60px] font-bold text-black/80 leading-[1.2] mb-4">
             How are we doing it?
           </h2>
           <p className="text-[18px] lg:text-[24px] leading-[30px] text-black/80 max-w-[706px]">
-            …simplifying everything about Insurance. We&apos;ll do it all for you.
+            …simplifying everything about insurance and health coverage. We&apos;ll do it all for
+            you.
           </p>
         </div>
 
@@ -90,11 +100,12 @@ export function HowSection() {
 
           {/* Tab Content */}
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
-            {/* Left — text */}
+            {/* Left text */}
             <div className="flex-1 p-8 lg:p-12 flex flex-col gap-6 justify-center">
-              <h3 className="font-serif text-[28px] lg:text-[42px] font-bold text-black/80 leading-[1.3]">
-                {content.heading}
-              </h3>
+              <h3
+                className="font-serif text-[28px] lg:text-[42px] font-bold text-black/80 leading-[1.3]"
+                dangerouslySetInnerHTML={{ __html: content.heading }}
+              />
               <p className="text-[16px] lg:text-[22px] leading-[30px] text-black/80">
                 {content.description}
               </p>
@@ -110,7 +121,7 @@ export function HowSection() {
               </ul>
             </div>
 
-            {/* Right — illustration */}
+            {/* Right illustration */}
             <div className="relative w-full lg:w-[48%] h-[260px] sm:h-[340px] lg:h-[500px] shrink-0">
               <Image
                 src={content.image}

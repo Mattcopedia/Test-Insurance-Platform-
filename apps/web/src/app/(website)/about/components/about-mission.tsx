@@ -1,15 +1,29 @@
+'use client'
+
+import { useInView } from '@/hooks/use-in-view'
+import { cn } from '@wrapa/ui'
+
 export function AboutMission() {
+  const { ref: missionRef, isInView: missionInView } = useInView()
+  const { ref: visionRef, isInView: visionInView } = useInView()
+
   return (
     <section className="bg-white py-14 lg:py-24">
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Mission */}
-          <div className="flex flex-col gap-6">
+          <div
+            ref={missionRef}
+            className={cn(
+              'flex flex-col gap-6 transition-[opacity,transform] duration-1000 ease-out',
+              missionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            )}
+          >
             <span className="inline-block text-[#990505] text-[14px] lg:text-[16px] font-semibold tracking-widest uppercase">
               Our Mission
             </span>
             <h2 className="font-serif text-[32px] sm:text-[40px] lg:text-[50px] font-bold text-black/80 leading-[1.2]">
-              Making insurance accessible to every African
+              Making insurance and health coverage accessible to every African
             </h2>
             <p className="text-[17px] lg:text-[20px] leading-[1.8] text-black/70">
               WRAPA exists to remove the barriers between people and the financial protection they
@@ -25,7 +39,14 @@ export function AboutMission() {
           </div>
 
           {/* Vision */}
-          <div className="flex flex-col gap-6">
+          <div
+            ref={visionRef}
+            className={cn(
+              'flex flex-col gap-6 transition-[opacity,transform] duration-1000 ease-out',
+              visionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            )}
+            style={{ transitionDelay: visionInView ? '100ms' : '0ms' }}
+          >
             <span className="inline-block text-[#990505] text-[14px] lg:text-[16px] font-semibold tracking-widest uppercase">
               Our Vision
             </span>

@@ -49,8 +49,8 @@ function NewsGrid({ articles }: { articles: typeof GRID_ARTICLES }) {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-      {articles.map((article) => (
-        <NewsCard key={article.slug} article={article} />
+      {articles.map((article, i) => (
+        <NewsCard key={article.slug} article={article} index={i} />
       ))}
     </div>
   )

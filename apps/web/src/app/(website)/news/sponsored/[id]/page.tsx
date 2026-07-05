@@ -1,8 +1,8 @@
-import { notFound } from 'next/navigation'
+import { SPONSORED_ADS } from '@/components/website/sponsored-ads-section/sponsored-ads-data'
+import { Button } from '@wrapa/ui'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@wrapa/ui'
-import { SPONSORED_ADS } from '@/components/website/sponsored-ads-section/sponsored-ads-data'
+import { notFound } from 'next/navigation'
 
 interface SponsoredAdPageProps {
   params: Promise<{ id: string }>
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: SponsoredAdPageProps) {
   const ad = SPONSORED_ADS.find((a) => a.id === id)
   if (!ad) return {}
   return {
-    title: `${ad.title} — ${ad.orgName} | WRAPA`,
+    title: `${ad.title}  ${ad.orgName} | WRAPA`,
     description: ad.description,
   }
 }
@@ -115,7 +115,7 @@ export default async function SponsoredAdPage({ params }: SponsoredAdPageProps) 
         {/* CTA footer */}
         <div className="mt-10 lg:mt-14 pt-8 border-t border-black/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-[13px] lg:text-[14px] text-black/40 max-w-[420px]">
-            This is sponsored content from {ad.orgName}. WRAPA does not endorse specific products —
+            This is sponsored content from {ad.orgName}. WRAPA does not endorse specific products
             always review terms before purchasing.
           </p>
           <Button variant="default" size="md" fullWidth={false} asChild>

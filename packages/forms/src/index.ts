@@ -2,3 +2,4 @@ export { Controller, FormProvider, useForm, useFormContext } from 'react-hook-fo
 export type { FieldValues, RegisterOptions, SubmitHandler, UseFormReturn } from 'react-hook-form'
 export { z } from 'zod'
 export type { ZodSchema, ZodType } from 'zod'
+export { zodResolver } from '@hookform/resolvers/zod'

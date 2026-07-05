@@ -1,9 +1,9 @@
-'use client'
+﻿'use client'
 
 import { useForm, z } from '@wrapa/forms'
 import { OnboardingNavButtons, TextField } from '@wrapa/ui'
 
-// ── Schema — combines fields from Figma nodes 949-2567 + 949-2565 ─────────────
+// ── Schema combines fields from Figma nodes 949-2567 + 949-2565 ─────────────
 
 const idCardSchema = z.object({
   idType: z.string().min(1, 'ID type is required'),

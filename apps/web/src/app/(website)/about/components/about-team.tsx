@@ -1,5 +1,9 @@
+'use client'
+
+import { useInView } from '@/hooks/use-in-view'
 import { cn } from '@wrapa/ui'
 import Image from 'next/image'
+
 const DirectorAvatar = '/assets/images/DirectorAvatar.png'
 const OfeimunAvatar = '/assets/images/MathiasAvatar.png'
 const ValOjumahAvatar = '/assets/images/ValOjumahAvatar.png'
@@ -7,6 +11,7 @@ const JoshuaAvatar = '/assets/images/JoshuaAvatar.png'
 const BigRukAvatar = '/assets/images/BigRukAvatar.png'
 const PaulAvatar = '/assets/images/PaulAvatar.png'
 const KingsleyAvatar = '/assets/images/KingsleyAvatar.png'
+
 const TEAM = [
   {
     name: 'Odinaka Joshua Chioma',
@@ -60,7 +65,7 @@ const TEAM = [
     name: 'Omonigho Val Ojumah',
     role: 'Chairman',
     photo: ValOjumahAvatar,
-    bio: 'Val Ojumah is a distinguished insurance executive and transformational business leader with more than three decades of experience in insurance brokerage, life insurance, strategic management, and digital innovation. A former Managing Director and CEO of FBN Insurance Limited, he successfully led the company from inception to become one of Nigeria’s leading life insurance institutions. Recognized as Africa’s Insurance CEO of the Year 2020, Ojumah has built a reputation for driving growth.',
+    bio: "Val Ojumah is a distinguished insurance executive and transformational business leader with more than three decades of experience in insurance brokerage, life insurance, strategic management, and digital innovation. A former Managing Director and CEO of FBN Insurance Limited, he successfully led the company from inception to become one of Nigeria's leading life insurance institutions. Recognized as Africa's Insurance CEO of the Year 2020, Ojumah has built a reputation for driving growth.",
     initials: 'OV',
     bg: 'bg-[#166534]',
   },
@@ -81,12 +86,86 @@ const TEAM = [
   },
 ]
 
+type TeamMember = (typeof TEAM)[number]
+
+function TeamCard({ member, index }: { member: TeamMember; index: number }) {
+  const { ref, isInView } = useInView()
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        'p-2 transition-[opacity,transform] duration-1000 ease-out',
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      )}
+      style={{ transitionDelay: isInView ? `${Math.min((index % 3) * 80, 300)}ms` : '0ms' }}
+    >
+      <div
+        className={cn(
+          'bg-white rounded-[18px] p-8 lg:p-10 flex flex-col gap-5 h-full ',
+          'border-2 border-transparent shadow-[0px_4px_160px_0px_rgba(0,0,0,0.06)]',
+          'hover:border-[#990505] hover:-translate-y-1 hover:shadow-[0px_12px_48px_0px_rgba(0,0,0,0.12)]',
+          'transition-[transform,box-shadow,border-color] duration-300 ease-out'
+        )}
+      >
+        {/* Avatar */}
+        {'photo' in member && member.photo ? (
+          <div className="size-[72px] lg:size-[88px] rounded-full overflow-hidden shrink-0">
+            <Image
+              src={member.photo}
+              alt={member.name}
+              width={88}
+              height={88}
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+        ) : (
+          <div
+            className={cn(
+              'size-[72px] lg:size-[88px] rounded-full flex items-center justify-center shrink-0',
+              member.bg
+            )}
+          >
+            <span className="font-serif font-bold text-white text-[22px] lg:text-[26px] leading-none">
+              {member.initials}
+            </span>
+          </div>
+        )}
+
+        <div>
+          <h3 className="font-serif text-[20px] lg:text-[26px] font-bold text-black/80 leading-tight">
+            {member.name}
+          </h3>
+          <p className="text-[14px] lg:text-[16px] text-[#990505] font-semibold mt-1">
+            {member.role}
+          </p>
+          {'org' in member && member.org && (
+            <p className="text-[12px] lg:text-[13px] text-black/40 font-medium mt-0.5">
+              {member.org}
+            </p>
+          )}
+        </div>
+
+        <p className="text-[15px] lg:text-[17px] leading-[1.7] text-black/60">{member.bio}</p>
+      </div>
+    </div>
+  )
+}
+
 export function AboutTeam() {
+  const { ref: headingRef, isInView: headingInView } = useInView()
+
   return (
     <section className="bg-[#fafbfd] py-14 lg:py-24">
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
         {/* Section heading */}
-        <div className="mb-10 lg:mb-16">
+        <div
+          ref={headingRef}
+          className={cn(
+            'mb-10 lg:mb-16 transition-[opacity,transform] duration-1000 ease-out',
+            headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          )}
+        >
           <h2 className="font-serif text-[36px] sm:text-[48px] lg:text-[60px] font-bold text-black/80 leading-[1.2] mb-4">
             The people behind WRAPA
           </h2>
@@ -98,51 +177,8 @@ export function AboutTeam() {
 
         {/* Team grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {TEAM.map((member) => (
-            <div
-              key={member.name}
-              className="bg-white rounded-[18px] shadow-[0px_4px_160px_0px_rgba(0,0,0,0.06)] p-8 lg:p-10 flex flex-col gap-5"
-            >
-              {/* Avatar */}
-              {'photo' in member && member.photo ? (
-                <div className="size-[72px] lg:size-[88px] rounded-full overflow-hidden shrink-0">
-                  <Image
-                    src={member.photo}
-                    alt={member.name}
-                    width={88}
-                    height={88}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              ) : (
-                <div
-                  className={cn(
-                    'size-[72px] lg:size-[88px] rounded-full flex items-center justify-center shrink-0',
-                    member.bg
-                  )}
-                >
-                  <span className="font-serif font-bold text-white text-[22px] lg:text-[26px] leading-none">
-                    {member.initials}
-                  </span>
-                </div>
-              )}
-
-              <div>
-                <h3 className="font-serif text-[20px] lg:text-[26px] font-bold text-black/80 leading-tight">
-                  {member.name}
-                </h3>
-                <p className="text-[14px] lg:text-[16px] text-[#990505] font-semibold mt-1">
-                  {member.role}
-                </p>
-                {'org' in member && member.org && (
-                  <p className="text-[12px] lg:text-[13px] text-black/40 font-medium mt-0.5">
-                    {member.org}
-                  </p>
-                )}
-              </div>
-
-              <p className="text-[15px] lg:text-[17px] leading-[1.7] text-black/60">{member.bio}</p>
-            </div>
+          {TEAM.map((member, i) => (
+            <TeamCard key={member.name} member={member} index={i} />
           ))}
         </div>
       </div>

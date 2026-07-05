@@ -1,4 +1,4 @@
-import { cn } from '@wrapa/ui'
+﻿import { cn } from '@wrapa/ui'
 import Link from 'next/link'
 
 function HealthIcon({ className }: { className?: string }) {
@@ -75,7 +75,7 @@ const CATEGORIES = [
     id: 'commercial',
     title: 'Business & Commercial',
     description:
-      'Comprehensive commercial cover for businesses — from cargo and vessels to employee liability and cyberattacks.',
+      'Comprehensive commercial cover for businesses from cargo and vessels to employee liability and cyberattacks.',
     bg: 'bg-[#f0faf4]',
     border: 'border-[#166534]/20',
     iconColor: 'text-[#166534]',
@@ -88,7 +88,7 @@ const CATEGORIES = [
     id: 'savings',
     title: 'Savings & Investment',
     description:
-      'Grow your wealth while staying protected — tax-efficient investment plans with guaranteed returns.',
+      'Grow your wealth while staying protected tax-efficient investment plans with guaranteed returns.',
     bg: 'bg-[#fffbeb]',
     border: 'border-[#92400e]/20',
     iconColor: 'text-[#92400e]',
@@ -109,7 +109,7 @@ export function ProductCategoriesSection() {
             Find the right cover for you
           </h2>
           <p className="text-[18px] lg:text-[22px] leading-[1.7] text-black/60 max-w-[660px]">
-            WRAPA brings together insurance products from Africa&apos;s leading insurers — organised
+            WRAPA brings together insurance products from Africa&apos;s leading insurers organised
             into the categories that matter most to you.
           </p>
         </div>

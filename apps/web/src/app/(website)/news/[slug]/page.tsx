@@ -1,7 +1,7 @@
-import { notFound } from 'next/navigation'
+import { Button } from '@wrapa/ui'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@wrapa/ui'
+import { notFound } from 'next/navigation'
 import { NewsCard } from '../components/news-card'
 import { NEWS_ARTICLES } from '../components/news-data'
 
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: NewsArticlePageProps) {
   const article = NEWS_ARTICLES.find((a) => a.slug === slug)
   if (!article) return {}
   return {
-    title: `${article.title} — WRAPA News`,
+    title: `${article.title}  WRAPA News`,
     description: article.excerpt,
   }
 }
@@ -130,8 +130,8 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {relatedArticles.map((related) => (
-                <NewsCard key={related.slug} article={related} />
+              {relatedArticles.map((related, i) => (
+                <NewsCard key={related.slug} article={related} index={i} />
               ))}
             </div>
           </div>

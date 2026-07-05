@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { Button } from '@wrapa/ui'
+import Link from 'next/link'
 
 const PRODUCTS = [
   {
@@ -31,7 +31,7 @@ const PRODUCTS = [
     name: 'Family Health Insurance',
     category: 'Health',
     description:
-      'A single floater plan that covers your entire family — spouse, children, and parents — under one comprehensive health policy.',
+      'A single floater plan that covers your entire family  spouse, children, and parents  under one comprehensive health policy.',
     href: '/products/family-health',
   },
   {
@@ -55,7 +55,7 @@ const PRODUCTS = [
     name: 'Tax Saving Investment',
     category: 'Savings',
     description:
-      'An investment-linked insurance plan that qualifies for applicable tax deductions — grow your money while reducing your tax liability.',
+      'An investment-linked insurance plan that qualifies for applicable tax deductions  grow your money while reducing your tax liability.',
     href: '/products/tax-saving',
   },
   {

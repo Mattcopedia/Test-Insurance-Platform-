@@ -1,29 +1,30 @@
-import Link from 'next/link'
+import NextLink from 'next/link'
 
 const COMPANY_LINKS = ['About us', 'Team', 'Blog', 'Career', 'Contact']
 const PRODUCT_LINKS = [
   'Return of premium',
   'Zero cost term plan',
-  'Term insurance for diabetic',
   'Family health insurance',
+  'Individual HMO plan',
+  'Group health scheme',
   'Child saving plan',
-  'Guarantee return plan',
-  'Tax saving investment',
   'Marine insurance',
-  'Work men compensation',
+  'Workmen compensation',
   'Cyber insurance',
+  'Guarantee return plan',
 ]
 const LEGAL_LINKS = ['End-user policy', 'Privacy policy', 'Terms of use', 'Cookies', 'Security']
-// const SOCIAL_LINKS = ['LinkedIn', 'Twitter', 'Facebook', 'Instagram']
-const SOCIAL_LINKS = ['LinkedIn']
+const SOCIAL_LINKS = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/wrapa-insurtech/' },
+]
 
 function FooterLogo() {
   return (
-    <Link href="/" className="flex items-center gap-1">
+    <NextLink href="/" className="flex items-center gap-1">
       <span className="font-bold text-xl text-white tracking-tight leading-none">
         WRAPA<sup className="text-[8px] font-medium align-super ml-px">™</sup>
       </span>
-    </Link>
+    </NextLink>
   )
 }
 
@@ -34,12 +35,40 @@ function FooterLinkGroup({ title, links }: { title: string; links: string[] }) {
       <ul className="space-y-3">
         {links.map((item) => (
           <li key={item}>
-            <Link
+            <NextLink
               href="#"
               className="text-white/60 text-[18px] leading-[20px] hover:text-white transition-colors duration-150"
             >
               {item}
-            </Link>
+            </NextLink>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+function FooterSocialGroup({
+  title,
+  links,
+}: {
+  title: string
+  links: { label: string; href: string }[]
+}) {
+  return (
+    <div>
+      <h3 className="text-white font-bold text-[20px] mb-5">{title}</h3>
+      <ul className="space-y-3">
+        {links.map((item) => (
+          <li key={item.label}>
+            <NextLink
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 text-[18px] leading-[20px] hover:text-white transition-colors duration-150"
+            >
+              {item.label}
+            </NextLink>
           </li>
         ))}
       </ul>
@@ -99,7 +128,7 @@ export function Footer() {
           <FooterLinkGroup title="Company" links={COMPANY_LINKS} />
           <FooterLinkGroup title="Product" links={PRODUCT_LINKS} />
           <FooterLinkGroup title="Legal" links={LEGAL_LINKS} />
-          <FooterLinkGroup title="Follow us" links={SOCIAL_LINKS} />
+          <FooterSocialGroup title="Follow us" links={SOCIAL_LINKS} />
         </div>
 
         {/* Divider */}

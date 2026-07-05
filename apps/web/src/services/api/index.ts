@@ -1,6 +1,6 @@
-import { axios } from '@wrapa/api-client'
+﻿import { axios } from '@wrapa/api-client'
 
-// Placeholder — will be wired to real session/token storage once @wrapa/auth is built out
+// Placeholder will be wired to real session/token storage once @wrapa/auth is built out
 function getAuthToken(): string | null {
   return null
 }

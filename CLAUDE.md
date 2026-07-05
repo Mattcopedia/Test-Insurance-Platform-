@@ -218,6 +218,24 @@ HMOs and traditional insurers have SEPARATE portal experiences:
 
 ---
 
+### Figma Assets — SVG Export Rule
+
+- NEVER reference images/icons via Figma MCP asset proxy URLs
+  (e.g. https://www.figma.com/api/mcp/asset/...) in any final component code
+- These URLs are temporary/session-based and will break once the MCP connection
+  or asset cache expires
+- ALWAYS export the actual SVG/image from the Figma MCP connection and save it
+  as a permanent local file in apps/web/public/assets/icons/ (for icons/SVGs)
+  or apps/web/public/assets/images/ (for photos/raster images)
+- Use clear, descriptive lowercase-with-hyphens filenames matching what the
+  asset represents (e.g. checkmark.svg, shield-icon.svg) — never generic names
+  like icon-1.svg or asset-export.svg
+- Reference local files using next/image with a src path like
+  "/assets/icons/[filename].svg", matching the existing pattern already used
+  elsewhere in the codebase (e.g. ClientIcon/InsuranceIcon in PortalCard)
+- Before finishing any task that pulls visual assets from Figma, verify the
+  final code contains ZERO references to figma.com/api/mcp/asset/
+
 ## Running the Project
 
 ```bash

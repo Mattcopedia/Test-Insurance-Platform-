@@ -1,3 +1,7 @@
+'use client'
+
+import { useInView } from '@/hooks/use-in-view'
+import { cn } from '@wrapa/ui'
 import Image from 'next/image'
 
 const AVATAR_1 = '/assets/icons/Testimonial 1.svg'
@@ -9,58 +13,165 @@ const TESTIMONIALS = [
     role: 'Business owner',
     avatar: AVATAR_1,
     quote:
-      "\"Wrapa has made managing my insurance needs a breeze. Their claims feature, in particular, stands out. Filing a claim used to be a tedious process, but with Wrapa, it's become incredibly easy. The user-friendly interface guides you through the steps, and you can track the progress of your claim in real-time. What's even more impressive is the speed at which they handle claims. It's clear that Wrapa values their customers' time and convenience. I highly recommend Wrapa to anyone looking for a hassle-free insurance experience.\"",
+      'Wrapa made managing my insurance needs a breeze. Filing a claim used to be tedious. Now it takes minutes and I can track progress in real time.',
   },
   {
     name: 'Daniel Robinson',
     role: 'Insurance Analyst',
     avatar: AVATAR_2,
     quote:
-      "\"Wrapa's insurance score measurement and ratings platform have become an indispensable tool for our team. The accuracy and reliability of the data it provides are unmatched. It's made our underwriting process much smoother and more precise. With Wrapa, we can assess risk with confidence and make informed decisions. It's not an exaggeration to say that this platform has revolutionized how we analyze insurance scores. We couldn't be happier with the results.\"",
+      "Wrapa's platform has become indispensable for our team. The accuracy of the data has made our underwriting process smoother and more precise.",
+  },
+  {
+    name: 'Amina Okoro',
+    role: 'HR Manager',
+    avatar: AVATAR_1,
+    quote:
+      'We enrolled our entire team on an HMO plan through Wrapa in one afternoon. The corporate dashboard makes mid-year changes effortless.',
+  },
+  {
+    name: 'James Mwangi',
+    role: 'Freelance consultant',
+    avatar: AVATAR_2,
+    quote:
+      'I switched my health cover to Wrapa and cut my monthly premium significantly. The marketplace made comparing plans genuinely easy.',
+  },
+  {
+    name: 'Fatima Bello',
+    role: 'Small business owner',
+    avatar: AVATAR_1,
+    quote:
+      'Getting a quote without signing up first was exactly what I needed. I had a clear cost estimate before committing to anything.',
+  },
+  {
+    name: 'David Chen',
+    role: 'Operations lead',
+    avatar: AVATAR_2,
+    quote:
+      'Our motor fleet insurance renewal used to take weeks of back-and-forth. Wrapa handled everything digitally and we were covered in days.',
+  },
+  {
+    name: 'Grace Wanjiku',
+    role: 'Teacher',
+    avatar: AVATAR_1,
+    quote:
+      'I found an affordable family HMO plan with maternity cover on Wrapa. The hospital network finder by county was incredibly helpful.',
+  },
+  {
+    name: 'Samuel Adeyemi',
+    role: 'Startup founder',
+    avatar: AVATAR_2,
+    quote:
+      "Wrapa's get-a-quote flow is the simplest insurance experience I've had. Old-school insurers need to catch up to this level of UX.",
+  },
+  {
+    name: 'Priya Sharma',
+    role: 'Finance director',
+    avatar: AVATAR_1,
+    quote:
+      'We consolidated three separate policies onto Wrapa and saved on admin overhead. One dashboard for claims, renewals, and reporting.',
+  },
+  {
+    name: 'Michael Osei',
+    role: 'Property developer',
+    avatar: AVATAR_2,
+    quote:
+      'Property insurance for our portfolio is now managed in one place. Claims status updates in real time. No more chasing brokers by phone.',
   },
 ]
 
-export function TestimonialsSection() {
+function TestimonialCard({
+  name,
+  role,
+  avatar,
+  quote,
+}: {
+  name: string
+  role: string
+  avatar: string
+  quote: string
+}) {
   return (
-    <section className="bg-white py-14 lg:py-24">
+    <article
+      className={cn(
+        'w-[340px] sm:w-[380px] lg:w-[550px] shrink-0',
+        'min-h-[220px] sm:min-h-[240px]',
+        'bg-white rounded-[16px] border border-black/[0.06]',
+        'shadow-[0_4px_32px_rgba(0,0,0,0.10)]',
+        'p-6 sm:p-7 lg:p-8 flex flex-col gap-5'
+      )}
+    >
+      <div className="flex items-center gap-4">
+        <div className="relative size-12 sm:size-14 rounded-full overflow-hidden shrink-0 bg-gray-100">
+          <Image src={avatar} alt={name} fill sizes="56px" className="object-cover" />
+        </div>
+        <div className="min-w-0">
+          <p className="font-sans text-[20px] sm:text-[17px] font-bold text-black/90 leading-tight">
+            {name}
+          </p>
+          <p className="text-[18px] sm:text-[20px] text-black/45 mt-0.5">{role}</p>
+        </div>
+      </div>
+
+      <p className="text-[25px] sm:text-[28px] leading-[1.7] text-black/70">{quote}</p>
+    </article>
+  )
+}
+
+function MarqueeTrack({
+  duplicate = false,
+  className,
+}: {
+  duplicate?: boolean
+  className?: string
+}) {
+  return (
+    <div
+      className={cn('flex shrink-0 items-stretch gap-5 sm:gap-6 pr-5 sm:pr-6', className)}
+      aria-hidden={duplicate || undefined}
+    >
+      {TESTIMONIALS.map((t) => (
+        <TestimonialCard key={`${duplicate ? 'dup-' : ''}${t.name}`} {...t} />
+      ))}
+    </div>
+  )
+}
+
+export function TestimonialsSection() {
+  const { ref: headingRef, isInView: headingInView } = useInView()
+
+  return (
+    <section className="bg-[#f7f8fa] py-14 lg:py-20 overflow-hidden">
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
-        {/* Section Heading */}
-        <div className="mb-10 lg:mb-16">
-          <h2 className="font-serif text-[36px] sm:text-[48px] lg:text-[60px] font-bold text-black/80 leading-[1.2] mb-4">
-            Why businesses and
-            <br className="hidden sm:block" /> individuals are choosing Wrapa
+        <div
+          ref={headingRef}
+          className={cn(
+            'mb-10 lg:mb-12 transition-[opacity,transform] duration-1000 ease-out',
+            headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          )}
+        >
+          <h2 className="font-serif text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-black/85 leading-[1.15] mb-3">
+            Why businesses and individuals are choosing Wrapa
           </h2>
-          <p className="text-[18px] lg:text-[22px] leading-[30px] text-black/80 max-w-[706px]">
-            Here are what some of them say about Wrapa.
+          <p className="text-[16px] lg:text-[18px] leading-relaxed text-black/55 max-w-[640px]">
+            Here is what some of them say about Wrapa.
           </p>
         </div>
+      </div>
 
-        {/* Testimonial Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-          {TESTIMONIALS.map((t) => (
-            <div
-              key={t.name}
-              className="bg-[#fafbfd] rounded-[17px] shadow-[0px_3px_134px_0px_rgba(0,0,0,0.15)] p-8 lg:p-12 flex flex-col gap-6"
-            >
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <div className="relative size-[72px] lg:size-[98px] rounded-full overflow-hidden shrink-0 bg-gray-200">
-                  <Image src={t.avatar} alt={t.name} fill sizes="98px" className="object-cover" />
-                </div>
-                <div>
-                  <p className="font-serif text-[20px] lg:text-[27px] font-bold text-black/90 leading-tight">
-                    {t.name}
-                  </p>
-                  <p className="text-[16px] lg:text-[21px] text-black/80 mt-1">{t.role}</p>
-                </div>
-              </div>
+      <div className="relative w-full overflow-hidden" aria-label="Customer testimonials">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-24 bg-linear-to-r from-[#f7f8fa] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-24 bg-linear-to-l from-[#f7f8fa] to-transparent" />
 
-              {/* Quote */}
-              <p className="text-[16px] lg:text-[28px] leading-[1.6] text-black/80 italic">
-                {t.quote}
-              </p>
-            </div>
-          ))}
+        {/* Both tracks must be direct flex siblings for -50% loop math */}
+        <div
+          className={cn(
+            'testimonials-marquee-track flex w-max will-change-transform',
+            'motion-reduce:animate-none'
+          )}
+        >
+          <MarqueeTrack />
+          <MarqueeTrack duplicate className="motion-reduce:hidden" />
         </div>
       </div>
     </section>

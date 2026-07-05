@@ -6,7 +6,7 @@ import { NewsFeatured } from './components/news-featured'
 import { NewsPagination } from './components/news-pagination'
 
 export const metadata = {
-  title: 'News — WRAPA',
+  title: 'News WRAPA',
   description:
     "Stay updated with the latest news, insights, and announcements from WRAPA  Africa's insurance marketplace.",
 }

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useForm, z } from '@wrapa/forms'
 import { OnboardingNavButtons } from '@wrapa/ui'
@@ -123,7 +123,7 @@ export function PersonalInfoStep({
           {...register('phoneNumber')}
         />
 
-        {/* Gender — native select styled to match TextField */}
+        {/* Gender native select styled to match TextField */}
         <GenderSelect
           label="Gender"
           error={errors.gender?.message}
@@ -137,7 +137,7 @@ export function PersonalInfoStep({
   )
 }
 
-// ── GenderSelect — styled to match TextField visually ─────────────────────────
+// ── GenderSelect styled to match TextField visually ─────────────────────────
 
 interface GenderSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string

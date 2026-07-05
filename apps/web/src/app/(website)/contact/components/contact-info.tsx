@@ -1,4 +1,7 @@
+'use client'
+
 import { cn } from '@wrapa/ui'
+import { useInView } from '@/hooks/use-in-view'
 import * as React from 'react'
 
 interface InfoItemProps {
@@ -44,6 +47,23 @@ function InfoItem({ icon, label, value, href }: InfoItemProps) {
   }
 
   return <div>{content}</div>
+}
+
+function AnimatedInfoItem({ index, ...props }: InfoItemProps & { index: number }) {
+  const { ref, isInView } = useInView()
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        'transition-[opacity,transform] duration-1000 ease-out',
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      )}
+      style={{ transitionDelay: isInView ? `${Math.min(index * 80, 300)}ms` : '0ms' }}
+    >
+      <InfoItem {...props} />
+    </div>
+  )
 }
 
 const SOCIAL_LINKS = [
@@ -99,11 +119,104 @@ const SOCIAL_LINKS = [
   // },
 ]
 
+const CONTACT_DETAILS: InfoItemProps[] = [
+  {
+    icon: (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden
+      >
+        <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+    ),
+    label: 'Office',
+    value: 'Lagos, Nigeria, Pan-African HQ',
+  },
+  {
+    icon: (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden
+      >
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.3a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+      </svg>
+    ),
+    label: 'Phone',
+    value: '+234 704 7000 808',
+    href: 'tel:+2347047000808',
+  },
+  {
+    icon: (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden
+      >
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+      </svg>
+    ),
+    label: 'Email',
+    value: 'info@wrapa.africa',
+    href: 'mailto:info@wrapa.africa',
+  },
+  {
+    icon: (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 8v4l3 3" />
+      </svg>
+    ),
+    label: 'Support Hours',
+    value: 'Mon – Fri, 8:00 AM – 6:00 PM WAT',
+  },
+]
+
 export function ContactInfo() {
+  const { ref: headingRef, isInView: headingInView } = useInView()
+  const { ref: socialRef, isInView: socialInView } = useInView()
+
   return (
     <div className="flex flex-col gap-10 lg:gap-12">
       {/* Heading */}
-      <div>
+      <div
+        ref={headingRef}
+        className={cn(
+          'transition-[opacity,transform] duration-1000 ease-out',
+          headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        )}
+      >
         <span className="inline-block text-[#990505] text-[13px] lg:text-[14px] font-semibold tracking-widest uppercase mb-4">
           Get in touch
         </span>
@@ -118,97 +231,22 @@ export function ContactInfo() {
 
       {/* Contact details */}
       <div className="flex flex-col gap-6 lg:gap-7">
-        <InfoItem
-          icon={
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden
-            >
-              <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-          }
-          label="Office"
-          value="Lagos, Nigeria, Pan-African HQ"
-        />
-
-        <InfoItem
-          icon={
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden
-            >
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.3a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-          }
-          label="Phone"
-          value="+234 803 858 7446"
-          href="tel:+2348038587446"
-        />
-
-        <InfoItem
-          icon={
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden
-            >
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
-          }
-          label="Email"
-          value="info@wrapa.africa"
-          href="mailto:info@wrapa.africa"
-        />
-
-        <InfoItem
-          icon={
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden
-            >
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 8v4l3 3" />
-            </svg>
-          }
-          label="Support Hours"
-          value="Mon – Fri, 8:00 AM – 6:00 PM WAT"
-        />
+        {CONTACT_DETAILS.map((item, i) => (
+          <AnimatedInfoItem key={item.label} {...item} index={i} />
+        ))}
       </div>
 
       {/* Divider */}
       <div className="h-px bg-black/10" />
 
       {/* Social links */}
-      <div>
+      <div
+        ref={socialRef}
+        className={cn(
+          'transition-[opacity,transform] duration-1000 ease-out',
+          socialInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        )}
+      >
         <p className="text-[13px] lg:text-[14px] font-semibold tracking-widest uppercase text-black/40 mb-5">
           Follow WRAPA
         </p>

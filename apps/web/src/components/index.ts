@@ -1,6 +1,6 @@
-// # app-specific (non-shared) components
+﻿// # app-specific (non-shared) components
 
-// Shared — used by multiple portals
+// Shared used by multiple portals
 export { SignIn } from './shared/sign-in'
 export type { SignInFormData, SignInProps } from './shared/sign-in'
 

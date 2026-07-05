@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import * as React from 'react'
 import { OnboardingLayout, VerificationMethodSelector } from '@wrapa/ui'
@@ -74,7 +74,7 @@ export default function CustomerOnboardingPage() {
   }
 
   function handleGoToDashboard() {
-    // Navigate to customer dashboard — replace with router.push('/customer-dashboard') when wired
+    // Navigate to customer dashboard replace with router.push('/customer-dashboard') when wired
     console.log('[onboarding] complete, navigating to dashboard')
   }
 
