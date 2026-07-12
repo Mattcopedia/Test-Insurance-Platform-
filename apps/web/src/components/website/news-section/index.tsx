@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button, cn } from '@wrapa/ui'
 import { useInView } from '@/hooks/use-in-view'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 
 const NEWS_ITEMS = [
   {
@@ -51,11 +52,8 @@ function NewsCard({
   return (
     <div
       ref={ref}
-      className={cn(
-        'p-2 transition-[opacity,transform] duration-1000 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      )}
-      style={{ transitionDelay: isInView ? `${Math.min(index * 80, 300)}ms` : '0ms' }}
+      className={cn('p-2', scrollRevealClasses(isInView, 'card'))}
+      style={scrollRevealStagger(isInView, index)}
     >
       <Link
         href={`/news/${slug}`}
@@ -99,8 +97,8 @@ export function NewsSection() {
         <div
           ref={headingRef}
           className={cn(
-            'flex items-end justify-between mb-10 lg:mb-14 transition-[opacity,transform] duration-1000 ease-out',
-            headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            'flex items-end justify-between mb-10 lg:mb-14',
+            scrollRevealClasses(headingInView, 'heading')
           )}
         >
           <h2 className="font-serif text-[48px] lg:text-[64px] font-bold text-black/80 leading-tight">

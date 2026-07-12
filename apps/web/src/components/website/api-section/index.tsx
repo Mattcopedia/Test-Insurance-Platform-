@@ -1,7 +1,8 @@
-﻿'use client'
+'use client'
 
 import Image from 'next/image'
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import { useInView } from '@/hooks/use-in-view'
 
 const API_BG = 'https://www.figma.com/api/mcp/asset/7db783be-8402-49a8-a309-c22876ad8b87'
@@ -29,8 +30,7 @@ export function ApiSection() {
           ref={mainRef}
           className={cn(
             'bg-white rounded-[20px] shadow-[0px_4px_160px_0px_rgba(0,0,0,0.25)] overflow-hidden',
-            'transition-[opacity,transform] duration-1000 ease-out',
-            mainInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            scrollRevealClasses(mainInView, 'card')
           )}
         >
           <div className="flex flex-col lg:flex-row">
@@ -76,8 +76,7 @@ export function ApiSection() {
             ref={card1Ref}
             className={cn(
               'bg-white rounded-[20px] shadow-[0px_4px_160px_0px_rgba(0,0,0,0.25)] p-8 lg:p-12 flex flex-col items-center text-center gap-6',
-              'transition-[opacity,transform] duration-1000 ease-out',
-              card1InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              scrollRevealClasses(card1InView, 'card')
             )}
           >
             <div className="size-[80px] lg:size-[97px] relative">
@@ -93,10 +92,9 @@ export function ApiSection() {
             ref={card2Ref}
             className={cn(
               'bg-white rounded-[20px] shadow-[0px_4px_160px_0px_rgba(0,0,0,0.25)] p-8 lg:p-12 flex flex-col items-center text-center gap-6',
-              'transition-[opacity,transform] duration-1000 ease-out',
-              card2InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              scrollRevealClasses(card2InView, 'card')
             )}
-            style={{ transitionDelay: card2InView ? '100ms' : '0ms' }}
+            style={scrollRevealStagger(card2InView, 1)}
           >
             <div className="size-[80px] lg:size-[105px] relative">
               <Image

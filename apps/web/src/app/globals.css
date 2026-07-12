@@ -53,6 +53,51 @@
   }
 }
 
+/* Scroll reveal — clean fade-up on viewport entry (inspired by modern marketing sites) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 2rem, 0);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.scroll-reveal-subtle {
+  transform: translate3d(0, 1rem, 0);
+  transition-duration: 0.6s;
+}
+
+.scroll-reveal-heading {
+  transform: translate3d(0, 1.75rem, 0);
+  transition-duration: 0.85s;
+}
+
+.scroll-reveal-card {
+  transform: translate3d(0, 1.5rem, 0) scale(0.98);
+  transition-duration: 0.65s;
+}
+
+.scroll-reveal-card.scroll-reveal-visible {
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal-subtle,
+  .scroll-reveal-heading,
+  .scroll-reveal-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

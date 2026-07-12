@@ -1,6 +1,7 @@
 'use client'
 
 import { Button, cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import Link from 'next/link'
 import { useInView } from '@/hooks/use-in-view'
 
@@ -14,8 +15,7 @@ export function AboutJoin() {
           ref={ref}
           className={cn(
             'bg-[#050306] rounded-[24px] px-8 sm:px-12 lg:px-20 py-14 lg:py-20 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-20',
-            'transition-[opacity,transform] duration-1000 ease-out',
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            scrollRevealClasses(isInView)
           )}
         >
           {/* Left copy */}

@@ -1,7 +1,8 @@
 'use client'
 
-import { cn } from '@wrapa/ui'
 import { useInView } from '@/hooks/use-in-view'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
+import { cn } from '@wrapa/ui'
 
 const STATS = [
   { value: '40+', label: 'Insurance partners' },
@@ -15,11 +16,8 @@ function StatItem({ value, label, index }: { value: string; label: string; index
   return (
     <div
       ref={ref}
-      className={cn(
-        'flex flex-col gap-2 transition-[opacity,transform] duration-1000 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      )}
-      style={{ transitionDelay: isInView ? `${Math.min(index * 80, 300)}ms` : '0ms' }}
+      className={cn('flex flex-col gap-2', scrollRevealClasses(isInView, 'card'))}
+      style={scrollRevealStagger(isInView, index)}
     >
       <span className="font-serif text-[44px] sm:text-[56px] lg:text-[72px] font-bold text-white leading-none">
         {value}

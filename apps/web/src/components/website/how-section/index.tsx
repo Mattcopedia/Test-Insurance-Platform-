@@ -1,6 +1,7 @@
-﻿'use client'
+'use client'
 
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useInView } from '@/hooks/use-in-view'
@@ -63,19 +64,12 @@ export function HowSection() {
     <section className="bg-white py-14 lg:py-24">
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
         {/* Section Heading */}
-        <div
-          ref={ref}
-          className={cn(
-            'mb-10 lg:mb-14',
-            'transition-[opacity,transform] duration-1000 ease-out',
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          )}
-        >
+        <div ref={ref} className={cn('mb-10 lg:mb-14', scrollRevealClasses(isInView))}>
           <h2 className="font-serif text-[40px] sm:text-[50px] lg:text-[60px] font-bold text-black/80 leading-[1.2] mb-4">
             How are we doing it?
           </h2>
           <p className="text-[18px] lg:text-[24px] leading-[30px] text-black/80 max-w-[706px]">
-            …simplifying everything about insurance and health coverage. We&apos;ll do it all for
+            ...simplifying everything about insurance and health coverage. We&apos;ll do it all for
             you.
           </p>
         </div>

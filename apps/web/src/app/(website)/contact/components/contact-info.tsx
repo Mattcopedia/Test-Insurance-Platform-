@@ -1,6 +1,7 @@
 'use client'
 
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import { useInView } from '@/hooks/use-in-view'
 import * as React from 'react'
 
@@ -55,11 +56,8 @@ function AnimatedInfoItem({ index, ...props }: InfoItemProps & { index: number }
   return (
     <div
       ref={ref}
-      className={cn(
-        'transition-[opacity,transform] duration-1000 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      )}
-      style={{ transitionDelay: isInView ? `${Math.min(index * 80, 300)}ms` : '0ms' }}
+      className={scrollRevealClasses(isInView, 'subtle')}
+      style={scrollRevealStagger(isInView, index)}
     >
       <InfoItem {...props} />
     </div>
@@ -210,13 +208,7 @@ export function ContactInfo() {
   return (
     <div className="flex flex-col gap-10 lg:gap-12">
       {/* Heading */}
-      <div
-        ref={headingRef}
-        className={cn(
-          'transition-[opacity,transform] duration-1000 ease-out',
-          headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        )}
-      >
+      <div ref={headingRef} className={scrollRevealClasses(headingInView, 'heading')}>
         <span className="inline-block text-[#990505] text-[13px] lg:text-[14px] font-semibold tracking-widest uppercase mb-4">
           Get in touch
         </span>
@@ -240,13 +232,7 @@ export function ContactInfo() {
       <div className="h-px bg-black/10" />
 
       {/* Social links */}
-      <div
-        ref={socialRef}
-        className={cn(
-          'transition-[opacity,transform] duration-1000 ease-out',
-          socialInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        )}
-      >
+      <div ref={socialRef} className={scrollRevealClasses(socialInView, 'subtle')}>
         <p className="text-[13px] lg:text-[14px] font-semibold tracking-widest uppercase text-black/40 mb-5">
           Follow WRAPA
         </p>

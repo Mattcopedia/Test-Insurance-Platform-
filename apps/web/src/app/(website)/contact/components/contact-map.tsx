@@ -1,6 +1,7 @@
 'use client'
 
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import dynamic from 'next/dynamic'
 import { useInView } from '@/hooks/use-in-view'
 
@@ -25,8 +26,7 @@ export function ContactMap() {
           className={cn(
             'relative w-full h-[280px] sm:h-[380px] lg:h-[480px]',
             'rounded-[20px] overflow-hidden',
-            'transition-[opacity,transform] duration-1000 ease-out',
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            scrollRevealClasses(isInView)
           )}
         >
           {!token ? (

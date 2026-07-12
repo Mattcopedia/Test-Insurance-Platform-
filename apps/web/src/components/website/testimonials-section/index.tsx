@@ -2,6 +2,7 @@
 
 import { useInView } from '@/hooks/use-in-view'
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import Image from 'next/image'
 
 const AVATAR_1 = '/assets/icons/Testimonial 1.svg'
@@ -145,10 +146,7 @@ export function TestimonialsSection() {
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
         <div
           ref={headingRef}
-          className={cn(
-            'mb-10 lg:mb-12 transition-[opacity,transform] duration-1000 ease-out',
-            headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          )}
+          className={cn('mb-10 lg:mb-12', scrollRevealClasses(headingInView, 'heading'))}
         >
           <h2 className="font-serif text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-black/85 leading-[1.15] mb-3">
             Why businesses and individuals are choosing Wrapa

@@ -1,6 +1,7 @@
 'use client'
 
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import { useInView } from '@/hooks/use-in-view'
 
 const VALUES = [
@@ -55,12 +56,11 @@ function ValueCard({ value, index }: { value: (typeof VALUES)[number]; index: nu
       ref={ref}
       className={cn(
         'rounded-[18px] border p-8 lg:p-10 flex flex-col gap-4',
-        'transition-[opacity,transform] duration-1000 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10',
+        scrollRevealClasses(isInView, 'card'),
         value.accent,
         value.border
       )}
-      style={{ transitionDelay: isInView ? `${Math.min((index % 3) * 80, 300)}ms` : '0ms' }}
+      style={scrollRevealStagger(isInView, index % 3)}
     >
       <h3 className="font-serif text-[22px] lg:text-[28px] font-bold text-black/80 leading-[1.3]">
         {value.title}
@@ -79,10 +79,7 @@ export function AboutValues() {
         {/* Section heading */}
         <div
           ref={headingRef}
-          className={cn(
-            'mb-10 lg:mb-16 transition-[opacity,transform] duration-1000 ease-out',
-            headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          )}
+          className={cn('mb-10 lg:mb-16', scrollRevealClasses(headingInView, 'heading'))}
         >
           <h2 className="font-serif text-[36px] sm:text-[48px] lg:text-[60px] font-bold text-black/80 leading-[1.2] mb-4">
             What we stand for

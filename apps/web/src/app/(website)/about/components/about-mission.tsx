@@ -2,6 +2,7 @@
 
 import { useInView } from '@/hooks/use-in-view'
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 
 export function AboutMission() {
   const { ref: missionRef, isInView: missionInView } = useInView()
@@ -14,10 +15,7 @@ export function AboutMission() {
           {/* Mission */}
           <div
             ref={missionRef}
-            className={cn(
-              'flex flex-col gap-6 transition-[opacity,transform] duration-1000 ease-out',
-              missionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            )}
+            className={cn('flex flex-col gap-6', scrollRevealClasses(missionInView, 'card'))}
           >
             <span className="inline-block text-[#990505] text-[14px] lg:text-[16px] font-semibold tracking-widest uppercase">
               Our Mission
@@ -41,11 +39,8 @@ export function AboutMission() {
           {/* Vision */}
           <div
             ref={visionRef}
-            className={cn(
-              'flex flex-col gap-6 transition-[opacity,transform] duration-1000 ease-out',
-              visionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            )}
-            style={{ transitionDelay: visionInView ? '100ms' : '0ms' }}
+            className={cn('flex flex-col gap-6', scrollRevealClasses(visionInView, 'card'))}
+            style={scrollRevealStagger(visionInView, 1)}
           >
             <span className="inline-block text-[#990505] text-[14px] lg:text-[16px] font-semibold tracking-widest uppercase">
               Our Vision

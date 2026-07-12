@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import { SPONSORED_ADS, type SponsoredAd } from './sponsored-ads-data'
 import { useInView } from '@/hooks/use-in-view'
 
@@ -13,11 +14,8 @@ function AdCard({ ad, index }: { ad: SponsoredAd; index: number }) {
   return (
     <div
       ref={ref}
-      className={cn(
-        'p-2 transition-[opacity,transform] duration-1000 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      )}
-      style={{ transitionDelay: isInView ? `${Math.min(index * 80, 300)}ms` : '0ms' }}
+      className={cn('p-2', scrollRevealClasses(isInView, 'card'))}
+      style={scrollRevealStagger(isInView, index)}
     >
       <Link
         href={detailHref}
@@ -102,8 +100,7 @@ export function SponsoredAdsSection() {
           ref={headingRef}
           className={cn(
             'flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 lg:mb-12',
-            'transition-[opacity,transform] duration-1000 ease-out',
-            headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            scrollRevealClasses(headingInView, 'heading')
           )}
         >
           <div>

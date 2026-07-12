@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import { useInView } from '@/hooks/use-in-view'
 import type { NewsArticle } from './news-data'
 
@@ -18,11 +19,8 @@ export function NewsCard({ article, className, index = 0 }: NewsCardProps) {
   return (
     <div
       ref={ref}
-      className={cn(
-        'p-2 transition-[opacity,transform] duration-1000 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      )}
-      style={{ transitionDelay: isInView ? `${Math.min(index * 80, 300)}ms` : '0ms' }}
+      className={cn('p-2', scrollRevealClasses(isInView, 'card'))}
+      style={scrollRevealStagger(isInView, index)}
     >
       <Link
         href={`/news/${article.slug}`}

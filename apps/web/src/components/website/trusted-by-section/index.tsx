@@ -2,6 +2,7 @@
 
 import { useInView } from '@/hooks/use-in-view'
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import Image from 'next/image'
 
 const TRUST_LOGOS = [
@@ -37,8 +38,7 @@ export function TrustedBySection() {
           ref={headingRef}
           className={cn(
             'font-serif text-[32px] lg:text-[40px] font-bold text-black/80 mb-8 lg:mb-12',
-            'transition-[opacity,transform] duration-1000 ease-out',
-            headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            scrollRevealClasses(headingInView, 'heading')
           )}
         >
           Trusted by
@@ -61,10 +61,9 @@ function LogoItem({ logo, index }: { logo: { src: string; alt: string }; index: 
       ref={ref}
       className={cn(
         'relative h-[72px] w-[160px] lg:h-[108px] lg:w-[227px] rounded-[10px] overflow-hidden shrink-0',
-        'transition-[opacity,transform] duration-1000 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        scrollRevealClasses(isInView, 'card')
       )}
-      style={{ transitionDelay: isInView ? `${Math.min(index * 60, 300)}ms` : '0ms' }}
+      style={scrollRevealStagger(isInView, index)}
     >
       <Image src={logo.src} alt={logo.alt} fill sizes="227px" className="object-contain" />
     </div>

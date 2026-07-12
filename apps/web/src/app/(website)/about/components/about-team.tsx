@@ -2,6 +2,7 @@
 
 import { useInView } from '@/hooks/use-in-view'
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import Image from 'next/image'
 
 const DirectorAvatar = '/assets/images/DirectorAvatar.png'
@@ -94,11 +95,8 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
   return (
     <div
       ref={ref}
-      className={cn(
-        'p-2 transition-[opacity,transform] duration-1000 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      )}
-      style={{ transitionDelay: isInView ? `${Math.min((index % 3) * 80, 300)}ms` : '0ms' }}
+      className={cn('p-2', scrollRevealClasses(isInView, 'card'))}
+      style={scrollRevealStagger(isInView, index % 3)}
     >
       <div
         className={cn(
@@ -161,10 +159,7 @@ export function AboutTeam() {
         {/* Section heading */}
         <div
           ref={headingRef}
-          className={cn(
-            'mb-10 lg:mb-16 transition-[opacity,transform] duration-1000 ease-out',
-            headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          )}
+          className={cn('mb-10 lg:mb-16', scrollRevealClasses(headingInView, 'heading'))}
         >
           <h2 className="font-serif text-[36px] sm:text-[48px] lg:text-[60px] font-bold text-black/80 leading-[1.2] mb-4">
             The people behind WRAPA

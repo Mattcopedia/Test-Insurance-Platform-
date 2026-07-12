@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button, cn } from '@wrapa/ui'
 import { useInView } from '@/hooks/use-in-view'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import type { NewsArticle } from './news-data'
 
 interface NewsFeaturedProps {
@@ -14,13 +15,7 @@ export function NewsFeatured({ article }: NewsFeaturedProps) {
   const { ref, isInView } = useInView()
 
   return (
-    <div
-      ref={ref}
-      className={cn(
-        'p-2 transition-[opacity,transform] duration-1000 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      )}
-    >
+    <div ref={ref} className={cn('p-2', scrollRevealClasses(isInView, 'card'))}>
       <div
         className={cn(
           'grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-[16px] overflow-hidden cursor-pointer',

@@ -2,6 +2,7 @@
 
 import { useInView } from '@/hooks/use-in-view'
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import Link from 'next/link'
 
 const TOOLS = [
@@ -63,13 +64,7 @@ export function HealthToolsSection() {
     <section className="bg-[#f8f9fb] py-14 lg:py-24 overflow-hidden">
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
         {/* Heading */}
-        <div
-          ref={ref}
-          className={cn(
-            'mb-10 lg:mb-14 transition-[opacity,transform] duration-1000 ease-out',
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          )}
-        >
+        <div ref={ref} className={cn('mb-10 lg:mb-14', scrollRevealClasses(isInView, 'heading'))}>
           <div className="flex items-center gap-3 mb-4">
             <span className="w-8 h-[2px] rounded-full bg-[#f97316]" />
             <span className="text-[#f97316] text-[12px] font-bold tracking-[0.18em] uppercase">
@@ -102,11 +97,8 @@ function ToolCard({ tool, index }: { tool: (typeof TOOLS)[0]; index: number }) {
   return (
     <div
       ref={ref}
-      className={cn(
-        'transition-[opacity,transform] duration-700 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      )}
-      style={{ transitionDelay: isInView ? `${Math.min(index * 60, 360)}ms` : '0ms' }}
+      className={scrollRevealClasses(isInView, 'card')}
+      style={scrollRevealStagger(isInView, index)}
     >
       <Link
         href={`/health-tools/${tool.slug}`}

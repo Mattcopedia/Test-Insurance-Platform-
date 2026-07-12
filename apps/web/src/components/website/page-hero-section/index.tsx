@@ -1,7 +1,8 @@
 'use client'
 
-import { cn } from '@wrapa/ui'
 import { useInView } from '@/hooks/use-in-view'
+import { scrollRevealClasses } from '@/lib/scroll-reveal'
+import { cn } from '@wrapa/ui'
 
 interface PageHeroSectionProps {
   eyebrow?: string
@@ -16,13 +17,7 @@ export function PageHeroSection({ eyebrow, title, subtitle, className }: PageHer
   return (
     <section className={cn('bg-[#050306] text-white py-16 lg:py-28', className)}>
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
-        <div
-          ref={ref}
-          className={cn(
-            'transition-[opacity,transform] duration-1000 ease-out',
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          )}
-        >
+        <div ref={ref} className={cn(scrollRevealClasses(isInView))}>
           {eyebrow && (
             <p className="text-[#990505] text-[16px] lg:text-[20px] font-semibold tracking-widest uppercase mb-4 lg:mb-6">
               {eyebrow}

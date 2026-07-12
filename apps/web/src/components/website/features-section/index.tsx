@@ -1,7 +1,8 @@
-﻿'use client'
+'use client'
 
 import Image from 'next/image'
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import { useInView } from '@/hooks/use-in-view'
 
 const INSURANCE_SCORE_BG =
@@ -19,13 +20,7 @@ export function FeaturesSection() {
     <section className="bg-white py-14 lg:py-24">
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16 space-y-12 lg:space-y-16">
         {/* Section heading */}
-        <div
-          ref={headingRef}
-          className={cn(
-            'transition-[opacity,transform] duration-1000 ease-out',
-            headingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          )}
-        >
+        <div ref={headingRef} className={scrollRevealClasses(headingInView, 'heading')}>
           <h2 className="font-serif text-[40px] sm:text-[50px] lg:text-[60px] font-bold text-black/80 leading-[1.2] mb-6 max-w-[750px]">
             The easiest way to find the right coverage
           </h2>
@@ -41,8 +36,7 @@ export function FeaturesSection() {
           ref={bannerRef}
           className={cn(
             'relative rounded-[20px] overflow-hidden h-[280px] sm:h-[360px] lg:h-[624px]',
-            'transition-[opacity,transform] duration-1000 ease-out',
-            bannerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            scrollRevealClasses(bannerInView)
           )}
         >
           <Image
@@ -73,8 +67,7 @@ export function FeaturesSection() {
             ref={card1Ref}
             className={cn(
               'bg-[#d1d7ef] rounded-[18px] shadow-[0px_4px_149px_0px_rgba(0,0,0,0.05)] p-8 lg:p-10 flex flex-col gap-6',
-              'transition-[opacity,transform] duration-1000 ease-out',
-              card1InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              scrollRevealClasses(card1InView, 'card')
             )}
           >
             <div>
@@ -104,10 +97,9 @@ export function FeaturesSection() {
             ref={card2Ref}
             className={cn(
               'bg-white rounded-[18px] shadow-[0px_4px_149px_0px_rgba(0,0,0,0.05)] p-8 lg:p-10 flex flex-col gap-6',
-              'transition-[opacity,transform] duration-1000 ease-out',
-              card2InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              scrollRevealClasses(card2InView, 'card')
             )}
-            style={{ transitionDelay: card2InView ? '100ms' : '0ms' }}
+            style={scrollRevealStagger(card2InView, 1)}
           >
             <div>
               <h3 className="font-serif text-[28px] lg:text-[40px] font-bold text-black/80 leading-[1.3] mb-4">

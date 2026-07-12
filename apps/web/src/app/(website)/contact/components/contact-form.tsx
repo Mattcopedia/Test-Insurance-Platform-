@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useForm, z } from '@wrapa/forms'
 import { Button, TextField, cn } from '@wrapa/ui'
@@ -7,8 +7,9 @@ import { submitContactForm } from '@/services/contact'
 import { contactSchema } from '@/services/contact/schema'
 import type { ContactFormData } from '@/services/contact/type'
 import { useInView } from '@/hooks/use-in-view'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 
-// ── Inline zod resolver (same pattern used across the codebase) ───────────────
+// -- Inline zod resolver (same pattern used across the codebase) ---------------
 
 function zodResolver<T extends z.ZodTypeAny>(schema: T) {
   return async (values: unknown) => {
@@ -27,7 +28,7 @@ function zodResolver<T extends z.ZodTypeAny>(schema: T) {
   }
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// -- Component -----------------------------------------------------------------
 
 export function ContactForm() {
   const [submitError, setSubmitError] = React.useState<string | null>(null)
@@ -58,8 +59,7 @@ export function ContactForm() {
       ref={ref}
       className={cn(
         'bg-white rounded-[20px] shadow-[0px_4px_160px_0px_rgba(0,0,0,0.08)] p-8 lg:p-12',
-        'transition-[opacity,transform] duration-1000 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        scrollRevealClasses(isInView)
       )}
     >
       <h2 className="font-serif text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-black/80 leading-[1.2] mb-2">
@@ -152,7 +152,7 @@ export function ContactForm() {
         )}
 
         <Button type="submit" size="lg" fullWidth disabled={isSubmitting} className="mt-2">
-          {isSubmitting ? 'Sending…' : 'Send Message'}
+          {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
       </form>
     </div>

@@ -3,6 +3,7 @@
 import { useInView } from '@/hooks/use-in-view'
 import * as Accordion from '@radix-ui/react-accordion'
 import { cn } from '@wrapa/ui'
+import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 
 const FAQS = [
   {
@@ -27,7 +28,7 @@ const FAQS = [
   },
   {
     q: 'How can I contact WRAPA for support?',
-    a: 'You can reach us through the Contact page on this website, where you will find our Lagos office address, phone number, and email. Our support team is available Monday to Friday, 9 AM – 5 PM (WAT). For urgent matters outside business hours, you can leave a message and we will respond on the next business day. You can also follow us on LinkedIn for announcements and updates.',
+    a: 'You can reach us through the Contact page on this website, where you will find our Lagos office address, phone number, and email. Our support team is available Monday to Friday, 9 AM - 5 PM (WAT). For urgent matters outside business hours, you can leave a message and we will respond on the next business day. You can also follow us on LinkedIn for announcements and updates.',
   },
   {
     q: 'Is WRAPA regulated? Are my policies secure?',
@@ -61,13 +62,12 @@ export function FaqSection() {
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
         {/* Two-column layout: sticky heading left, accordion right */}
         <div className="flex flex-col lg:flex-row lg:gap-16 xl:gap-24">
-          {/* Left column — heading */}
+          {/* Left column - heading */}
           <div
             ref={ref}
             className={cn(
               'lg:w-[380px] xl:w-[420px] shrink-0 mb-12 lg:mb-0 lg:pt-2',
-              'transition-[opacity,transform] duration-1000 ease-out',
-              isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              scrollRevealClasses(isInView)
             )}
           >
             {/* Label */}
@@ -100,7 +100,7 @@ export function FaqSection() {
             </div>
           </div>
 
-          {/* Right column — accordion */}
+          {/* Right column - accordion */}
           <div className="flex-1 min-w-0">
             <Accordion.Root
               type="single"
@@ -124,11 +124,8 @@ function FaqItem({ question, answer, index }: { question: string; answer: string
   return (
     <div
       ref={ref}
-      className={cn(
-        'transition-[opacity,transform] duration-1000 ease-out',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      )}
-      style={{ transitionDelay: isInView ? `${Math.min(index * 60, 300)}ms` : '0ms' }}
+      className={scrollRevealClasses(isInView, 'card')}
+      style={scrollRevealStagger(isInView, index)}
     >
       <Accordion.Item
         value={`item-${index}`}
