@@ -12,6 +12,7 @@ import {
   countActiveFilters,
   type FilterState,
 } from '../components/marketplace-filter'
+import { MarketplacePlanSearch } from '../components/marketplace-plan-search'
 import { getCategoryById, getProductsByCategory } from '../data/marketplace-data'
 
 const PAGE_SIZE = 9
@@ -106,6 +107,9 @@ export default function CategoryPage({ params }: Props) {
           </h1>
           <p className="text-[14px] sm:text-[15px] text-black/50">{category.description}</p>
         </div>
+
+        {/* Plan name search (UI only — API not wired yet) */}
+        <MarketplacePlanSearch className="mb-6 max-w-xl lg:max-w-2xl" />
 
         {/* Mobile filter button */}
         <div className="flex items-center justify-between mb-5 lg:hidden">
