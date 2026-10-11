@@ -89,9 +89,9 @@ export default async function PlanDetailPage({ params }: Props) {
             <Button size="md" fullWidth asChild>
               <Link href="/sign-in">Buy this plan</Link>
             </Button>
-            <Button variant="outline" size="md" fullWidth asChild>
+            {/* <Button variant="outline" size="md" fullWidth asChild>
               <Link href="/get-quote">Get a quote first</Link>
-            </Button>
+            </Button> */}
           </div>
         </div>
 
