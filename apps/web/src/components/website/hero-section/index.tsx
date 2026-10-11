@@ -56,13 +56,13 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="md" fullWidth={false} asChild>
+              {/* <Button size="md" fullWidth={false} asChild>
                 <Link href="/get-quote">Get a Free Quote</Link>
-              </Button>
+              </Button> */}
               <Button size="md" fullWidth={false} asChild>
                 <Link href="/marketplace">Explore plans</Link>
               </Button>
-              <Button
+              {/* <Button
                 className="bg-white text-black"
                 variant="outline"
                 size="md"
@@ -70,7 +70,7 @@ export function HeroSection() {
                 asChild
               >
                 <Link href="/">Make a claim</Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>
