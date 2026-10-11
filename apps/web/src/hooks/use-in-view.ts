@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 /**
  * Returns a ref and a boolean `isInView`.
  * Once the element enters the viewport, `isInView` becomes true and stays true permanently
- * — the IntersectionObserver is disconnected immediately after the first intersection.
+ * The IntersectionObserver is disconnected immediately after the first intersection.
  */
 export function useInView<T extends HTMLElement = HTMLDivElement>(
   options?: IntersectionObserverInit

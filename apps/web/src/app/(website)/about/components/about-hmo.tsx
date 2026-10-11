@@ -6,19 +6,19 @@ import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 
 const HMO_POINTS = [
   {
-    title: 'Enrolment, not a checkout',
+    title: 'You enrol first',
     description:
-      'An insurance policy pays after something goes wrong. An HMO plan works the other way: you enrol, then use a network of hospitals and clinics, often with little or nothing to pay at the desk. On WRAPA, individuals, families, and employers compare plans and enrol members. Cover begins with the network, not a claim form.',
+      'With an insurance policy, payment usually comes after a claim. With an HMO, you enrol and then use the hospitals and clinics on that plan. Many visits cost little or nothing at the desk. Individuals, families, and employers can compare plans and enrol members on WRAPA.',
   },
   {
-    title: 'Hospital networks you can check',
+    title: 'You can see the hospitals',
     description:
-      'Every plan is tied to accredited facilities, so you can see where you will actually be treated. In Nigeria, schemes align with the National Health Insurance Authority. In Kenya and the wider East African region, they include Social Health Authority networks and facilities on the Kenya Master Health Facility List.',
+      'Each plan shows the facilities you can use. In Nigeria, schemes follow the National Health Insurance Authority. In Kenya and East Africa, they include Social Health Authority networks and hospitals on the Kenya Master Health Facility List.',
   },
   {
-    title: 'Care, approvals, and provider payments',
+    title: 'Approvals and hospital payments',
     description:
-      'Pre-authorisation, treatment, and payments to hospitals sit on the same platform. Members, HMOs, and providers follow one status, from the request through to settlement, across Nigeria, Kenya, and the wider Pan-African market.',
+      'If a procedure needs approval, the request, the decision, and the payment to the hospital all stay on WRAPA. The member, the HMO, and the hospital see the same update, in Nigeria, Kenya, and across Africa.',
   },
 ]
 
@@ -60,13 +60,13 @@ export function AboutHmo() {
             HMOs on WRAPA
           </span>
           <h2 className="font-serif text-[32px] sm:text-[42px] lg:text-[56px] font-bold text-black/80 leading-[1.2] mb-5">
-            Health cover that starts with the hospital, not the claim
+            How HMO plans work
           </h2>
           <p className="text-[17px] lg:text-[20px] leading-[1.8] text-black/70">
-            WRAPA is built for traditional insurance and for HMOs as a path of its own. A health
-            plan here is membership of a provider network: outpatient visits, admission, maternity,
-            and the care your family actually uses. Personal plans, family cover, and company
-            schemes are available in Nigeria, Kenya, and across the wider Pan-African market.
+            WRAPA lists insurance policies and HMO plans. An HMO plan is a membership. You join a
+            network of hospitals and clinics and use it for outpatient visits, admission, maternity,
+            and everyday care. Personal plans, family cover, and company schemes are available in
+            Nigeria, Kenya, and across Africa.
           </p>
         </div>
 

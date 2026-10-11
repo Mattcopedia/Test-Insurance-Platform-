@@ -24,7 +24,7 @@ function SearchIcon({ className }: { className?: string }) {
 }
 
 /**
- * Plan name search UI — visual only until marketplace search API is available.
+ * Plan name search UI. Visual only until the marketplace search API is available.
  */
 export function MarketplacePlanSearch({ className }: { className?: string }) {
   const [query, setQuery] = useState('')
@@ -91,7 +91,7 @@ export function MarketplacePlanSearch({ className }: { className?: string }) {
       </div>
 
       <p className="mt-2 text-[12px] sm:text-[13px] text-black/40">
-        Search by plan name — filtering will be available once the marketplace API is connected.
+        Search by plan name. Filtering will be available once the marketplace API is connected.
       </p>
     </div>
   )

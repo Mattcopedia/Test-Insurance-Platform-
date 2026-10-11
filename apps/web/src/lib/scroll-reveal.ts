@@ -15,7 +15,7 @@ export function scrollRevealClasses(isInView: boolean, variant: ScrollRevealVari
   return cn(variantClass[variant], isInView && 'scroll-reveal-visible')
 }
 
-/** Stagger delay for grid/list children — only applied once visible. */
+/** Stagger delay for grid/list children, applied once they are visible. */
 export function scrollRevealStagger(
   isInView: boolean,
   index: number,

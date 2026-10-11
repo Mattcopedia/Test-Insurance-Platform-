@@ -17,7 +17,7 @@ export default function NewsPage() {
       <PageHeroSection
         eyebrow="WRAPA News"
         title="Insights, updates & stories"
-        subtitle="The latest from WRAPA across Nigeria, Kenya, and the wider Pan-African market — industry news, product launches, regulatory updates, and more."
+        subtitle="Product launches, regulatory updates, and other news from WRAPA in Nigeria, Kenya, and across Africa."
       />
 
       <div className="bg-white">

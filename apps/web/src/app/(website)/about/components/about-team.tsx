@@ -5,7 +5,7 @@ import { cn } from '@wrapa/ui'
 import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import Image from 'next/image'
 
-const DirectorAvatar = '/assets/images/DirectorAvatar.png'
+const DirectorAvatar = '/assets/images/directorAvatar.png'
 const OfeimunAvatar = '/assets/images/MathiasAvatar.png'
 const ValOjumahAvatar = '/assets/images/ValOjumahAvatar.png'
 const JoshuaAvatar = '/assets/images/JoshuaAvatar.png'

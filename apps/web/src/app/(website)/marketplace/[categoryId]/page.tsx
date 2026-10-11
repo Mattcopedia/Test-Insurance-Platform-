@@ -108,7 +108,7 @@ export default function CategoryPage({ params }: Props) {
           <p className="text-[14px] sm:text-[15px] text-black/50">{category.description}</p>
         </div>
 
-        {/* Plan name search (UI only — API not wired yet) */}
+        {/* Plan name search. UI only, API not wired yet. */}
         <MarketplacePlanSearch className="mb-6 max-w-xl lg:max-w-2xl" />
 
         {/* Mobile filter button */}

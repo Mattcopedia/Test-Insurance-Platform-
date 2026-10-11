@@ -136,7 +136,7 @@ const CONTACT_DETAILS: InfoItemProps[] = [
       </svg>
     ),
     label: 'Office',
-    value: 'Lagos, Nigeria — Pan-African HQ, with teams in Kenya and East Africa',
+    value: 'Lagos, Nigeria. Headquarters, with a team in Kenya and East Africa',
   },
   {
     icon: (
@@ -197,7 +197,7 @@ const CONTACT_DETAILS: InfoItemProps[] = [
       </svg>
     ),
     label: 'Support Hours',
-    value: 'Mon – Fri, 8:00 AM – 6:00 PM WAT',
+    value: 'Mon to Fri, 8:00 AM to 6:00 PM WAT',
   },
 ]
 
