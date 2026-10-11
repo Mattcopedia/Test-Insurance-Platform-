@@ -5,8 +5,7 @@ import { cn } from '@wrapa/ui'
 import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import { useInView } from '@/hooks/use-in-view'
 
-const INSURANCE_SCORE_BG =
-  'https://www.figma.com/api/mcp/asset/c9fb8043-a3c8-4bc5-858e-de5033722d21'
+const INSURANCE_SCORE_BG = '/assets/images/insurance-score-background.jpg'
 const AGGREGATOR_IMAGE = '/assets/images/InsuranceAggregator.png'
 const CLAIMS_IMAGE = '/assets/images/claimsProcessing.png'
 
