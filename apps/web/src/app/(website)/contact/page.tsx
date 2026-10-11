@@ -9,7 +9,7 @@ export default function ContactPage() {
       <PageHeroSection
         eyebrow="Contact Us"
         title="Talk to the WRAPA team"
-        subtitle="Have a question, partnership inquiry, or need support? We're here and ready to help."
+        subtitle="Have a question, partnership inquiry, or need support? We are here for customers and partners in Nigeria, Kenya, and across the Pan-African market."
       />
 
       {/* Form + Info two-column section */}

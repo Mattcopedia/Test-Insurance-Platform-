@@ -110,7 +110,7 @@ export function AddressInfoStep({
           <div className="flex-1">
             <TextField
               label="Country"
-              placeholder="e.g. Kenya"
+              placeholder="e.g. Nigeria or Kenya"
               disabled={isLoading}
               error={errors.country?.message}
               {...register('country')}

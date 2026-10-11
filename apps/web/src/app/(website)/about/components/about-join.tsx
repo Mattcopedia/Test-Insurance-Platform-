@@ -26,8 +26,9 @@ export function AboutJoin() {
               the smart way?
             </h2>
             <p className="text-[17px] lg:text-[20px] leading-[1.7] text-white/60 max-w-[520px]">
-              Join thousands of individuals and businesses across Africa who manage their insurance
-              and health plans on WRAPA. It takes less than five minutes to get started.
+              Join thousands of individuals and businesses across Nigeria, Kenya, and the wider
+              Pan-African market who manage their insurance and health plans on WRAPA. It takes less
+              than five minutes to get started.
             </p>
           </div>
 

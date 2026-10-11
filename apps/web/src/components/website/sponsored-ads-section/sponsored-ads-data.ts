@@ -40,9 +40,9 @@ export const SPONSORED_ADS: SponsoredAd[] = [
     category: 'Health / HMO',
     title: 'Premium Health Plans Now Open for Enrolment',
     description:
-      'Access 500+ hospitals across Nigeria with our new family health plan. SHA-accredited. Enrolment closes 30 June.',
+      'Family health plans across Nigeria, with SHA-accredited hospital networks in Kenya and the East African region. Enrolment closes 30 June.',
     body: [
-      "Afya HMO is proud to announce the launch of our 2026 family health plans, now open for enrolment until 30 June. With access to over 500 accredited hospitals across all 36 states, your family's healthcare needs are covered wherever you are in Nigeria.",
+      "Afya HMO is proud to announce the launch of our 2026 family health plans, now open for enrolment until 30 June. With access to over 500 accredited hospitals across Nigeria's 36 states, and SHA-accredited networks in Kenya and the wider East African region, your family's healthcare needs are covered wherever you are.",
       'Our plans are fully accredited by the Social Health Authority (SHA) and comply with the National Health Insurance Authority (NHIA) guidelines. Choose from three tiers Basic, Standard, and Premium each covering outpatient, inpatient, maternity, dental, and optical care.',
       "Enrolment is simple: fill out our online form, select your plan, and make payment via WRAPA or directly on our portal. Coverage begins on the first day of the following month. Don't miss the enrolment window plan administrators are available 24/7 to assist.",
     ],
@@ -76,7 +76,7 @@ export const SPONSORED_ADS: SponsoredAd[] = [
     description:
       'Cover your entire team from as little as $1 per employee per month. Ideal for businesses with 5 to 500 staff.',
     body: [
-      'Heritage Group Life specialises in providing SMEs across Africa with affordable, compliant group life insurance schemes. Whether you have 5 or 500 employees, we have a plan that fits your budget and satisfies the Pension Reform Act (PRA) group life requirement.',
+      'Heritage Group Life specialises in providing SMEs in Nigeria, Kenya, and across the Pan-African market with affordable, compliant group life insurance schemes. Whether you have 5 or 500 employees, we have a plan that fits your budget and satisfies the Pension Reform Act (PRA) group life requirement.',
       'Our group life schemes are priced as low as $1 per employee per month (billed annually), with a sum assured of 3x annual salary as required by law. We handle all documentation, staff enrolment, and annual renewals you focus on running your business.',
       'Setup takes less than 48 hours. Your HR team gets a dedicated account manager, a real-time portal to manage employee additions and exits, and immediate certificates of cover for each staff member. Contact our corporate team to get a bespoke quote today.',
     ],

@@ -8,7 +8,7 @@ import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 const FAQS = [
   {
     q: 'What is WRAPA?',
-    a: 'WRAPA is a technology-driven marketplace that connects individuals, families, and businesses with the right insurance policies and HMO health plans. We partner with leading insurers and HMO providers across Africa to make finding, comparing, purchasing, and managing coverage simple, transparent, and fast all on one platform.',
+    a: 'WRAPA is a technology-driven marketplace that connects individuals, families, and businesses with the right insurance policies and HMO health plans. We partner with leading insurers and HMO providers in Nigeria, Kenya, and across the Pan-African market to make finding, comparing, purchasing, and managing coverage simple, transparent, and fast all on one platform.',
   },
   {
     q: 'Who can enrol with WRAPA?',
@@ -28,11 +28,11 @@ const FAQS = [
   },
   {
     q: 'How can I contact WRAPA for support?',
-    a: 'You can reach us through the Contact page on this website, where you will find our Lagos office address, phone number, and email. Our support team is available Monday to Friday, 9 AM - 5 PM (WAT). For urgent matters outside business hours, you can leave a message and we will respond on the next business day. You can also follow us on LinkedIn for announcements and updates.',
+    a: 'You can reach us through the Contact page on this website, where you will find our Lagos headquarters in Nigeria, our teams across Kenya and the East African region, plus phone and email. Our support team is available Monday to Friday, 9 AM - 5 PM (WAT). For urgent matters outside business hours, you can leave a message and we will respond on the next business day. You can also follow us on LinkedIn for announcements and updates.',
   },
   {
     q: 'Is WRAPA regulated? Are my policies secure?',
-    a: 'WRAPA operates in compliance with the insurance and health regulatory frameworks in the markets where we operate, including the National Insurance Commission (NAICOM) in Nigeria and relevant authorities in East Africa. All policies sold through WRAPA are issued by licensed insurers and regulated HMOs. Your personal and financial data is protected with bank-grade encryption and strict access controls.',
+    a: 'WRAPA operates in compliance with the insurance and health regulatory frameworks in the markets where we operate, including the National Insurance Commission (NAICOM) in Nigeria, the Insurance Regulatory Authority (IRA) in Kenya and the wider East African region, and the authorities across the Pan-African markets we serve. All policies sold through WRAPA are issued by licensed insurers and regulated HMOs. Your personal and financial data is protected with bank-grade encryption and strict access controls.',
   },
 ]
 

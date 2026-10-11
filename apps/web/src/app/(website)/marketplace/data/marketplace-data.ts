@@ -206,7 +206,7 @@ function product(
     color: prov.color,
     name: fullName,
     provider: prov.name,
-    description: `${fullName}, cover from ${prov.name} for customers in Nigeria.`,
+    description: `${fullName}, cover from ${prov.name} for customers in Nigeria, Kenya, and across the Pan-African market.`,
     startingPrice: price,
     currency: 'NGN',
     billingCycle: 'Monthly',

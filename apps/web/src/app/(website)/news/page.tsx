@@ -8,7 +8,7 @@ import { NewsPagination } from './components/news-pagination'
 export const metadata = {
   title: 'News WRAPA',
   description:
-    "Stay updated with the latest news, insights, and announcements from WRAPA  Africa's insurance marketplace.",
+    'Stay updated with the latest news, insights, and announcements from WRAPA, the insurance marketplace for Nigeria, Kenya, and the wider Pan-African market.',
 }
 
 export default function NewsPage() {
@@ -17,7 +17,7 @@ export default function NewsPage() {
       <PageHeroSection
         eyebrow="WRAPA News"
         title="Insights, updates & stories"
-        subtitle="The latest from Africa's fastest-growing insurance platform  industry news, product launches, regulatory updates, and more."
+        subtitle="The latest from WRAPA across Nigeria, Kenya, and the wider Pan-African market — industry news, product launches, regulatory updates, and more."
       />
 
       <div className="bg-white">

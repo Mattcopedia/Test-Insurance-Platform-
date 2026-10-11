@@ -5,9 +5,9 @@ import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
 import { cn } from '@wrapa/ui'
 
 const STATS = [
-  { value: '40+', label: 'Insurance partners' },
+  { value: '40+', label: 'Insurer and HMO partners' },
   { value: '100K+', label: 'Policies issued' },
-  { value: '7', label: 'African markets' },
+  { value: '7', label: 'Pan-African markets' },
   { value: '99.9%', label: 'Platform uptime' },
 ]
 

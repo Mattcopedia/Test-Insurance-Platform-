@@ -26,13 +26,13 @@ export function AboutMission() {
             <p className="text-[17px] lg:text-[20px] leading-[1.8] text-black/70">
               WRAPA exists to remove the barriers between people and the financial protection they
               deserve. We do this by building the technology that connects insurers, brokers, HMOs,
-              and customers on a single, transparent platform so that getting insured is as simple
-              as sending a message.
+              and customers on a single, transparent platform so that buying a policy or enrolling
+              on an HMO plan is as simple as sending a message.
             </p>
             <p className="text-[17px] lg:text-[20px] leading-[1.8] text-black/70">
-              We partner with traditional insurers and HMOs across Kenya and the Pan-African market
-              to digitise their workflows, automate decisions, and serve customers faster, fairer,
-              and with full transparency.
+              We partner with traditional insurers and HMOs in Nigeria, Kenya, and across the wider
+              Pan-African market to digitise their workflows, automate decisions, and serve
+              customers faster, fairer, and with full transparency.
             </p>
           </div>
 
@@ -54,8 +54,9 @@ export function AboutMission() {
               and delivered with empathy.
             </p>
             <p className="text-[17px] lg:text-[20px] leading-[1.8] text-black/70">
-              By 2030, WRAPA aims to be the infrastructure layer that every African insurer, HMO,
-              broker, and regulator relies on to serve their customers and manage their operations.
+              By 2030, WRAPA aims to be the infrastructure layer that insurers, HMOs, brokers, and
+              regulators across Nigeria, Kenya, and the wider Pan-African market rely on to serve
+              their customers and manage their operations.
             </p>
           </div>
         </div>

@@ -29,7 +29,7 @@ const VALUES = [
   {
     title: 'Pan-African Ambition',
     description:
-      'Kenya is home, but Africa is the market. We design for multiple currencies, regulators, and languages from day one.',
+      'Nigeria and Kenya are home, and the Pan-African market is where we are headed. We design for multiple currencies, regulators, and languages from day one.',
     accent: 'bg-[#fffbeb]',
     border: 'border-[#92400e]/20',
   },

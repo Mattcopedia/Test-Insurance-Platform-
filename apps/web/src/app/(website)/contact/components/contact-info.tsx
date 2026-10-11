@@ -136,7 +136,7 @@ const CONTACT_DETAILS: InfoItemProps[] = [
       </svg>
     ),
     label: 'Office',
-    value: 'Lagos, Nigeria, Pan-African HQ',
+    value: 'Lagos, Nigeria — Pan-African HQ, with teams in Kenya and East Africa',
   },
   {
     icon: (

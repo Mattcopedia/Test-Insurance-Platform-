@@ -100,7 +100,7 @@ export function StepHmoDetails({ defaultValues, onSubmit, onBack }: Props) {
 
         <TextField
           label="Preferred county for hospital network"
-          placeholder="e.g. Nairobi"
+          placeholder="e.g. Lagos or Nairobi"
           {...register('preferredCounty')}
           error={errors.preferredCounty?.message}
         />

@@ -26,7 +26,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     author: 'WRAPA Editorial',
     content: [
       'The surge in pension fund assets across Nigeria has prompted financial analysts to call for deeper integration between pension managers and the broader insurance ecosystem. With assets under management crossing ₦19 trillion in 2023, the pension sector is no longer a passive player in the financial markets.',
-      'WRAPA, Africa\'s leading insurance marketplace, believes this convergence presents a once-in-a-decade opportunity for product innovation. "When you combine annuity products with long-term health and life cover, you create a holistic financial safety net," noted a senior analyst at the firm.',
+      'WRAPA, the insurance marketplace for Nigeria, Kenya, and the wider Pan-African market, believes this convergence presents a once-in-a-decade opportunity for product innovation. "When you combine annuity products with long-term health and life cover, you create a holistic financial safety net," noted a senior analyst at the firm.',
       'Regulatory clarity from the National Pension Commission (PenCom) and the National Insurance Commission (NAICOM) is expected to provide a joint framework by Q1 2026, which would allow pension fund administrators to co-distribute certain insurance products on platforms like WRAPA.',
     ],
   },
@@ -89,7 +89,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     readTime: '5 min read',
     author: 'WRAPA Editorial',
     content: [
-      'The Insurance Regulatory Authority (IRA) of Kenya has released the long-anticipated Digital Insurance Distribution Framework, providing clarity for platforms like WRAPA on licensing, product approval timelines, and consumer data protection requirements.',
+      'The Insurance Regulatory Authority (IRA) of Kenya has released the long-anticipated Digital Insurance Distribution Framework, providing clarity for platforms like WRAPA on licensing, product approval timelines, and consumer data protection requirements across Kenya and the wider East African region.',
       'Key among the guidelines is a mandatory 48-hour claims acknowledgement window for all digital channels, and a requirement that all pricing algorithms be auditable by the regulator on demand.',
       'WRAPA\'s Chief Compliance Officer, Amina Waweru, welcomed the development. "Regulatory certainty is the foundation of scale. We\'ve been collaborating with IRA on these guidelines for 18 months and we believe they strike the right balance between innovation and consumer protection."',
     ],
@@ -98,7 +98,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'wrapa-series-a',
     title: 'WRAPA closes $4M seed round to expand Pan-African insurance marketplace',
     excerpt:
-      'The Nairobi-headquartered insurtech secures fresh capital to accelerate product development, deepen its insurer network, and launch in three new African markets.',
+      'Rooted in Nigeria and Kenya, the Pan-African insurtech secures fresh capital to accelerate product development, deepen its insurer network, and launch in three new African markets.',
     date: 'October 20, 2023',
     category: 'Company',
     image: 'https://picsum.photos/seed/ad-cornerstone/1200/600',
@@ -114,14 +114,14 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'sha-nhif-replacement-impact',
     title: 'What SHA replacing NHIF means for health insurance in Kenya',
     excerpt:
-      'The Social Health Authority officially takes over from NHIF, reshaping how Kenyans access and pay for health cover  and how platforms like WRAPA integrate with public schemes.',
+      'The Social Health Authority officially takes over from NHIF, reshaping how people in Kenya and the wider East African region access and pay for health cover, and how platforms like WRAPA integrate with public schemes.',
     date: 'November 3, 2023',
     category: 'Regulations',
     image: 'https://picsum.photos/seed/ad-cornerstone/1200/600',
     readTime: '6 min read',
     author: 'WRAPA Editorial',
     content: [
-      "Following the Social Health Insurance Act of 2023, the Social Health Authority (SHA) formally replaced the National Hospital Insurance Fund (NHIF) as Kenya's primary public health insurer. The transition carries significant implications for the broader health insurance ecosystem.",
+      "Following the Social Health Insurance Act of 2023, the Social Health Authority (SHA) formally replaced the National Hospital Insurance Fund (NHIF) as Kenya's primary public health insurer. The transition carries significant implications for Kenya and the wider East African health insurance ecosystem.",
       'For WRAPA, the change means updating its HMO integration layer to support SHA membership validation, contribution tracking, and co-payment structures. The engineering team shipped the first version of SHA compatibility in its October release.',
       "Healthcare providers on the KMHFL (Kenya Master Health Facility List) that are already verified on the WRAPA platform will automatically be mapped to SHA's benefit schedules. Members can check their SHA enrolment status and top up with private cover directly on WRAPA.",
     ],
@@ -130,7 +130,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'micro-insurance-rural-kenya',
     title: 'Micro-insurance adoption in rural Kenya rises 34% year-on-year',
     excerpt:
-      'New data from the Association of Kenya Insurers shows mobile-first micro-products are reaching previously unserved communities, with agriculture and funeral cover leading growth.',
+      'New data from the Association of Kenya Insurers shows mobile-first micro-products are reaching previously unserved communities across Kenya and the wider East African region, with agriculture and funeral cover leading growth.',
     date: 'November 15, 2023',
     category: 'Industry',
     image: 'https://picsum.photos/seed/ad-cornerstone/1200/600',

@@ -109,8 +109,8 @@ export function ProductCategoriesSection() {
             Find the right cover for you
           </h2>
           <p className="text-[18px] lg:text-[22px] leading-[1.7] text-black/60 max-w-[660px]">
-            WRAPA brings together insurance products from Africa&apos;s leading insurers organised
-            into the categories that matter most to you.
+            WRAPA brings together insurance products from leading insurers in Nigeria, Kenya, and
+            across the Pan-African market, organised into the categories that matter most to you.
           </p>
         </div>
 

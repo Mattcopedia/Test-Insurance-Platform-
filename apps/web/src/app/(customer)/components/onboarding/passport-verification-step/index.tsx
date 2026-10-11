@@ -147,7 +147,7 @@ export function PassportVerificationStep({
           <div className="flex-1">
             <TextField
               label="Nationality"
-              placeholder="e.g. Kenyan"
+              placeholder="e.g. Nigerian or Kenyan"
               disabled={isLoading}
               error={errors.nationality?.message}
               {...register('nationality')}
@@ -157,7 +157,7 @@ export function PassportVerificationStep({
 
         <TextField
           label="Country of Issue"
-          placeholder="e.g. Kenya"
+          placeholder="e.g. Nigeria or Kenya"
           disabled={isLoading}
           error={errors.countryOfIssue?.message}
           {...register('countryOfIssue')}

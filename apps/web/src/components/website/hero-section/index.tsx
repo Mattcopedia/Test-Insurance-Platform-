@@ -51,8 +51,8 @@ export function HeroSection() {
             <p className="text-[18px] lg:text-[22px] leading-[40px] text-white/90  mb-10 lg:mb-14">
               Every day, insurers and HMOs make decisions that impact their customers. WRAPA enables
               them to automate and optimise their processes with technology solutions that deliver
-              better experiences and outcomes. whether you need an insurance policy or an HMO health
-              plan.
+              better experiences and outcomes, whether you need an insurance policy or an HMO health
+              plan. Built for Nigeria, Kenya, and the wider Pan-African market.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

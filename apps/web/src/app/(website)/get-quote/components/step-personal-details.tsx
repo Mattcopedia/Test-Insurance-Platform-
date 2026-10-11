@@ -88,7 +88,7 @@ export function StepPersonalDetails({ defaultValues, onSubmit, onBack }: Props) 
         {/* Location */}
         <TextField
           label="County / State"
-          placeholder="e.g. Nairobi"
+          placeholder="e.g. Lagos or Nairobi"
           {...register('location')}
           error={errors.location?.message}
         />
