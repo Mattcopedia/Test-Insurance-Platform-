@@ -13,6 +13,7 @@ const BigRukAvatar = '/assets/images/BigRukAvatar.png'
 const PaulAvatar = '/assets/images/PaulAvatar.png'
 const KingsleyAvatar = '/assets/images/KingsleyAvatar.png'
 const BrunoAvatar = '/assets/images/brunoAvatar.png'
+const VictorAvatar = '/assets/images/victorAvatar.png'
 
 const TEAM = [
   {
@@ -52,7 +53,7 @@ const TEAM = [
     name: 'Bruno Otakhogbogie',
     photo: BrunoAvatar,
     role: 'Executive Director and CTO',
-    bio: 'Bruno manages the engineering team at XtraDot Technologies, building products for startups and larger businesses, and he is Executive Director and CTO at WRAPA. He leads technical teams across several continents and supports fintechs, banks, and large companies on cloud, APIs, open banking, and enterprise integration in North, East, and West Africa.',
+    bio: 'Bruno manages the engineering team at XtraDot Technologies, building products for startups and larger businesses, and he is Executive Director and CTO at WRAPA. He leads technical teams across several continents and supports fintechs, commercial banks, OEMs, and Fortune 500 businesses on enterprise integration, hybrid and multi-cloud architecture, open APIs, and process automation in North, East, and West Africa. His work also covers fintech, open banking, security, and DevOps.',
     initials: 'BO',
     bg: 'bg-[#990505]',
   },
@@ -82,8 +83,9 @@ const TEAM = [
   },
   {
     name: 'Victor Onyegbado',
+    photo: VictorAvatar,
     role: 'CLO',
-    bio: '',
+    bio: 'Victor Onyegbado is a maritime and energy lawyer with over 19 years of post-call experience advising clients, handling disputes, and leading regulatory compliance across Nigeria’s maritime and energy sectors. His work covers maritime litigation and arbitration, corporate governance, and board-level counsel for industry operators, including ship arrests, charter party disputes, marine casualties, customs valuation, and terminal concession agreements. He has also contributed to industry texts and law reform.',
     initials: 'VO',
     bg: 'bg-[#166534]',
   },

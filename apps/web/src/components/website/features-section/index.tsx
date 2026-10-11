@@ -34,7 +34,7 @@ export function FeaturesSection() {
         <div
           ref={bannerRef}
           className={cn(
-            'relative rounded-[20px] overflow-hidden h-[280px] sm:h-[360px] lg:h-[624px]',
+            'relative rounded-[20px] overflow-hidden min-h-[320px] sm:min-h-[380px] lg:h-[624px]',
             scrollRevealClasses(bannerInView)
           )}
         >
@@ -43,15 +43,14 @@ export function FeaturesSection() {
             alt="Insurance score platform"
             fill
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-right"
           />
-          {/* Overlay gradient + text */}
-          <div className="absolute inset-0 bg-[#002046]/60" />
-          <div className="absolute inset-0 flex flex-col justify-center px-8 lg:px-16">
-            <h3 className="font-serif text-[28px] sm:text-[36px] lg:text-[40px] font-bold text-white leading-[1.4] max-w-[700px] mb-4 lg:mb-6">
+          <div className="absolute inset-0 bg-[#002046]/70" />
+          <div className="relative z-10 flex flex-col justify-center px-5 py-8 sm:px-8 sm:py-12 lg:absolute lg:inset-0 lg:px-16 lg:py-0">
+            <h3 className="font-serif text-[22px] sm:text-[32px] lg:text-[40px] font-bold text-white leading-[1.25] max-w-[700px] mb-3 sm:mb-4 lg:mb-6">
               Insurance score measurement and ratings platform.
             </h3>
-            <p className="text-[16px] lg:text-[22px] leading-[30px] text-white/90 max-w-[710px]">
+            <p className="text-[14px] sm:text-[16px] lg:text-[22px] leading-[1.55] sm:leading-[1.65] lg:leading-[30px] text-white/90 max-w-[710px]">
               Insurance scores are ratings used by insurance companies and HMOs to determine an
               individual&apos;s risk profile, likelihood of filing a claim, and expected coverage
               costs helping you get the most accurate plan match.
@@ -70,10 +69,10 @@ export function FeaturesSection() {
             )}
           >
             <div>
-              <h3 className="font-serif text-[28px] lg:text-[40px] font-bold text-black/80 leading-[1.3] mb-4">
+              <h3 className="font-serif text-[22px] sm:text-[28px] lg:text-[40px] font-bold text-black/80 leading-[1.3] mb-3 sm:mb-4">
                 Insurance &amp; Health Plan Aggregator
               </h3>
-              <p className="text-[16px] lg:text-[20px] leading-[30px] text-black/80">
+              <p className="text-[14px] sm:text-[16px] lg:text-[20px] leading-[1.6] lg:leading-[30px] text-black/80">
                 One place for every plan seeker. WRAPA gathers insurance policies and HMO health
                 plans from multiple providers, organises them side-by-side, and connects you with
                 carriers, independent agents, and HMO networks so you can compare and choose with
@@ -101,10 +100,10 @@ export function FeaturesSection() {
             style={scrollRevealStagger(card2InView, 1)}
           >
             <div>
-              <h3 className="font-serif text-[28px] lg:text-[40px] font-bold text-black/80 leading-[1.3] mb-4">
+              <h3 className="font-serif text-[22px] sm:text-[28px] lg:text-[40px] font-bold text-black/80 leading-[1.3] mb-3 sm:mb-4">
                 Quick Claims &amp; Pre-Authorisation
               </h3>
-              <p className="text-[16px] lg:text-[20px] leading-[30px] text-black/80">
+              <p className="text-[14px] sm:text-[16px] lg:text-[20px] leading-[1.6] lg:leading-[30px] text-black/80">
                 Whether you&apos;re filing an insurance claim or requesting HMO pre-authorisation
                 for a medical procedure, WRAPA&apos;s streamlined digital process makes it fast and
                 transparent. Track every step in real time and get resolutions without the paperwork
