@@ -12,6 +12,7 @@ const JoshuaAvatar = '/assets/images/JoshuaAvatar.png'
 const BigRukAvatar = '/assets/images/BigRukAvatar.png'
 const PaulAvatar = '/assets/images/PaulAvatar.png'
 const KingsleyAvatar = '/assets/images/KingsleyAvatar.png'
+const BrunoAvatar = '/assets/images/brunoAvatar.png'
 
 const TEAM = [
   {
@@ -49,8 +50,9 @@ const TEAM = [
   },
   {
     name: 'Bruno Otakhogbogie',
+    photo: BrunoAvatar,
     role: 'Executive Director and CTO',
-    bio: 'Bruno is a technology leader and engineering executive who manages the engineering team at XtraDot Technologies, where the focus is building solutions that support disruptive ideas and growing startups. A hands-on innovator, he helps businesses and organisations deliver their strategies, with a track record of driving productivity through technology across top-tier industry leaders. He leads technical teams distributed across several continents and supports fintechs, commercial banks, OEMs, and Fortune 500 businesses in enterprise integration, hybrid and multi-cloud architecture, AIOps, microservices, open API and API banking, and process automation across North, East, and West Africa. At WRAPA, Bruno brings deep expertise in fintech, open banking, API management, enterprise integration, security, and DevOps.',
+    bio: 'Bruno manages the engineering team at XtraDot Technologies, building products for startups and larger businesses, and he is Executive Director and CTO at WRAPA. He leads technical teams across several continents and supports fintechs, banks, and large companies on cloud, APIs, open banking, and enterprise integration in North, East, and West Africa.',
     initials: 'BO',
     bg: 'bg-[#990505]',
   },
