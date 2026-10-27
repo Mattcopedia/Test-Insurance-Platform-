@@ -83,6 +83,14 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # ============================================================
+# Local agent notes — kept on this machine, not in the repo
+# ============================================================
+AGENTS.md
+CLAUDE.md
+.cursorignore
+component_architecture_plan_5df914d4.plan.md
+
+# ============================================================
 # Editor & IDE
 # ============================================================
 .idea/
