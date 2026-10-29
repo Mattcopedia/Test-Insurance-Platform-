@@ -1,7 +1,6 @@
 'use client'
 
 import { cn } from '@wrapa/ui'
-import { useState } from 'react'
 
 function SearchIcon({ className }: { className?: string }) {
   return (
@@ -23,12 +22,15 @@ function SearchIcon({ className }: { className?: string }) {
   )
 }
 
-/**
- * Plan name search UI. Visual only until the marketplace search API is available.
- */
-export function MarketplacePlanSearch({ className }: { className?: string }) {
-  const [query, setQuery] = useState('')
-
+export function MarketplacePlanSearch({
+  className,
+  query,
+  onQueryChange,
+}: {
+  className?: string
+  query: string
+  onQueryChange: (value: string) => void
+}) {
   return (
     <div className={cn('w-full', className)}>
       <label htmlFor="marketplace-plan-search" className="sr-only">
@@ -51,7 +53,7 @@ export function MarketplacePlanSearch({ className }: { className?: string }) {
           id="marketplace-plan-search"
           type="search"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => onQueryChange(e.target.value)}
           placeholder="Search plans by name..."
           autoComplete="off"
           className={cn(
@@ -67,7 +69,7 @@ export function MarketplacePlanSearch({ className }: { className?: string }) {
         {query.length > 0 && (
           <button
             type="button"
-            onClick={() => setQuery('')}
+            onClick={() => onQueryChange('')}
             aria-label="Clear search"
             className={cn(
               'absolute right-3 flex size-7 items-center justify-center rounded-full',
@@ -90,9 +92,7 @@ export function MarketplacePlanSearch({ className }: { className?: string }) {
         )}
       </div>
 
-      <p className="mt-2 text-[12px] sm:text-[13px] text-black/40">
-        Search by plan name. Filtering will be available once the marketplace API is connected.
-      </p>
+      <p className="mt-2 text-[12px] sm:text-[13px] text-black/40">Search by plan name.</p>
     </div>
   )
 }

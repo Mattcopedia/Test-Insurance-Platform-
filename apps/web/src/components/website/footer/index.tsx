@@ -1,4 +1,5 @@
 import NextLink from 'next/link'
+import { FooterSubscribe } from './footer-subscribe'
 
 const COMPANY_LINKS = ['About us', 'Team', 'Blog', 'Career', 'Contact']
 const PRODUCT_LINKS = [
@@ -91,33 +92,7 @@ export function Footer() {
           </p>
 
           {/* Subscribe Form */}
-          <div className="flex flex-col sm:flex-row gap-3 w-full max-w-[900px]">
-            <div className="w-full sm:flex-1 bg-white/90 backdrop-blur-sm rounded-[10px] h-[60px] flex items-center px-5">
-              <input
-                type="email"
-                name="subscribe-email"
-                autoComplete="email"
-                placeholder="Enter email"
-                className="bg-transparent w-full text-black/50 text-[18px] lg:text-[22px] outline-none placeholder:text-black/40"
-              />
-            </div>
-            <button className="h-[60px] px-7 bg-[#990505] rounded-[10px] text-white text-[20px] lg:text-[22px] font-sans flex items-center justify-center gap-2 whitespace-nowrap hover:bg-[#7a0404] transition-colors duration-150 shrink-0">
-              Subscribe
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="shrink-0"
-              >
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="white" />
-                <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="white" />
-              </svg>
-            </button>
-          </div>
+          <FooterSubscribe />
         </div>
 
         {/* Divider */}

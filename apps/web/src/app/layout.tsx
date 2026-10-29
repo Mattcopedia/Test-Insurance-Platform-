@@ -23,7 +23,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-        <Toaster position="top-right" richColors />
+        <Toaster
+          position="top-right"
+          richColors
+          offset={24}
+          toastOptions={{
+            duration: 5000,
+            classNames: {
+              toast:
+                'w-[min(480px,calc(100vw-32px))]! items-center! gap-3.5! rounded-2xl! p-5! text-[18px]! leading-snug!',
+              title: 'text-[18px]! font-semibold! leading-snug!',
+              description: 'text-[16px]! leading-snug!',
+              icon: 'size-6! [&_svg]:size-6!',
+            },
+          }}
+        />
       </body>
     </html>
   )

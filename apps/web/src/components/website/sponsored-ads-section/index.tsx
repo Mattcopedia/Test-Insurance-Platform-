@@ -1,15 +1,25 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@wrapa/ui'
 import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
-import { SPONSORED_ADS, type SponsoredAd } from './sponsored-ads-data'
 import { useInView } from '@/hooks/use-in-view'
+import SponsoredPostsApi from '@/services/sponsored-posts'
+import type { SponsoredSummary } from '@/services/sponsored-posts/types'
 
-function AdCard({ ad, index }: { ad: SponsoredAd; index: number }) {
+function initials(name: string) {
+  return name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('')
+}
+
+function AdCard({ ad, index }: { ad: SponsoredSummary; index: number }) {
   const { ref, isInView } = useInView()
-  const detailHref = `/news/sponsored/${ad.id}`
 
   return (
     <div
@@ -18,7 +28,7 @@ function AdCard({ ad, index }: { ad: SponsoredAd; index: number }) {
       style={scrollRevealStagger(isInView, index)}
     >
       <Link
-        href={detailHref}
+        href={`/news/sponsored/${ad.slug}`}
         className={cn(
           'group flex flex-col h-full cursor-pointer bg-white rounded-[10px] overflow-hidden',
           'border-2 border-transparent shadow-[0px_4px_160px_0px_rgba(0,0,0,0.08)]',
@@ -26,61 +36,55 @@ function AdCard({ ad, index }: { ad: SponsoredAd; index: number }) {
           'transition-[transform,box-shadow,border-color] duration-300 ease-out'
         )}
       >
-        {/* Image */}
-        <div className="relative w-full h-[180px] sm:h-[200px] lg:h-[220px] overflow-hidden shrink-0">
-          <Image
-            src={ad.image}
-            alt={ad.title}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover"
-          />
+        <div className="relative w-full h-[180px] sm:h-[200px] lg:h-[220px] overflow-hidden shrink-0 bg-[#ead9c2]">
+          {ad.imageUrl ? (
+            <Image
+              src={ad.imageUrl}
+              alt=""
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover"
+            />
+          ) : null}
         </div>
 
-        {/* Body */}
         <div className="p-5 lg:p-6 flex flex-col gap-3 flex-1">
-          {/* Org row + Sponsored badge */}
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 min-w-0">
-              <div
-                className="size-7 lg:size-8 rounded-full flex items-center justify-center shrink-0 text-white text-[10px] lg:text-[11px] font-bold"
-                style={{ backgroundColor: ad.orgColor }}
-                aria-hidden
-              >
-                {ad.orgInitials}
-              </div>
+              {ad.partnerLogoUrl ? (
+                <Image
+                  src={ad.partnerLogoUrl}
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="size-7 lg:size-8 rounded-full object-cover shrink-0"
+                />
+              ) : (
+                <div className="size-7 lg:size-8 rounded-full flex items-center justify-center shrink-0 text-white text-[10px] lg:text-[11px] font-bold bg-[#10243f]">
+                  {initials(ad.partnerName)}
+                </div>
+              )}
               <span className="text-[13px] lg:text-[14px] font-semibold text-black/70 truncate">
-                {ad.orgName}
+                {ad.partnerName}
               </span>
             </div>
 
             <span className="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] lg:text-[11px] font-semibold uppercase tracking-wider bg-amber-50 text-amber-700 border border-amber-200">
-              <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden>
-                <circle cx="4" cy="4" r="4" />
-              </svg>
               Sponsored
             </span>
           </div>
 
-          {/* Category */}
-          <span className="text-[11px] lg:text-[12px] font-semibold uppercase tracking-widest text-[#990505]">
-            {ad.category}
-          </span>
-
-          {/* Title */}
           <h3 className="font-bold text-[16px] lg:text-[20px] leading-[1.4] text-black line-clamp-2">
             {ad.title}
           </h3>
 
-          {/* Description */}
           <p className="text-[13px] lg:text-[15px] leading-[1.6] text-black/55 line-clamp-2 flex-1">
-            {ad.description}
+            {ad.excerpt}
           </p>
 
-          {/* CTA */}
-          <div className="pt-3 border-t border-black/8 mt-auto flex items-center justify-between">
+          <div className="pt-3 border-t border-black/8 mt-auto">
             <span className="text-[13px] lg:text-[14px] font-semibold text-[#990505] group-hover:underline">
-              Learn more →
+              {ad.callToActionLabel || 'Learn more'}
             </span>
           </div>
         </div>
@@ -89,13 +93,37 @@ function AdCard({ ad, index }: { ad: SponsoredAd; index: number }) {
   )
 }
 
-export function SponsoredAdsSection() {
+export function SponsoredAdsSection({
+  placement = 'News',
+}: {
+  placement?: 'Any' | 'Homepage' | 'News' | 'Marketplace'
+}) {
   const { ref: headingRef, isInView: headingInView } = useInView()
+  const [posts, setPosts] = useState<SponsoredSummary[]>([])
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    let cancelled = false
+    SponsoredPostsApi.list({ placement, limit: 6 })
+      .then((items) => {
+        if (!cancelled) setPosts(items)
+      })
+      .catch(() => {
+        if (!cancelled) setPosts([])
+      })
+      .finally(() => {
+        if (!cancelled) setReady(true)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [placement])
+
+  if (!ready || posts.length === 0) return null
 
   return (
-    <section className="bg-[#fafafa] py-14 lg:py-20" aria-label="Sponsored content">
+    <section className="bg-[#fafafa] py-14 lg:py-20" aria-label="Sponsored content" id="sponsored">
       <div className="mx-auto max-w-[1800px] px-6 lg:px-16">
-        {/* Header */}
         <div
           ref={headingRef}
           className={cn(
@@ -116,17 +144,15 @@ export function SponsoredAdsSection() {
           </p>
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {SPONSORED_ADS.map((ad, i) => (
-            <AdCard key={ad.id} ad={ad} index={i} />
+          {posts.map((ad, index) => (
+            <AdCard key={ad.id} ad={ad} index={index} />
           ))}
         </div>
 
-        {/* Disclosure */}
         <p className="mt-8 lg:mt-10 text-[12px] text-black/35 text-center">
-          Sponsored content is approved by WRAPA before publication and does not constitute
-          financial or medical advice.
+          {posts[0]?.disclosure ||
+            'Sponsored content is approved by WRAPA before publication and does not constitute financial or medical advice.'}
         </p>
       </div>
     </section>

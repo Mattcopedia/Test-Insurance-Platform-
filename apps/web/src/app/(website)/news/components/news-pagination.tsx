@@ -1,16 +1,22 @@
+'use client'
+
 import { Button, cn } from '@wrapa/ui'
 
 interface NewsPaginationProps {
-  currentPage?: number
-  totalPages?: number
+  currentPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
   className?: string
 }
 
 export function NewsPagination({
-  currentPage = 1,
-  totalPages = 4,
+  currentPage,
+  totalPages,
+  onPageChange,
   className,
 }: NewsPaginationProps) {
+  if (totalPages <= 1) return null
+
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1)
 
   return (
@@ -21,6 +27,7 @@ export function NewsPagination({
         fullWidth={false}
         disabled={currentPage === 1}
         aria-label="Previous page"
+        onClick={() => onPageChange(currentPage - 1)}
       >
         <svg
           width="16"
@@ -40,6 +47,8 @@ export function NewsPagination({
         {pages.map((page) => (
           <button
             key={page}
+            type="button"
+            onClick={() => onPageChange(page)}
             className={cn(
               'w-9 h-9 rounded-full text-[14px] font-medium transition-colors duration-150 border',
               page === currentPage
@@ -60,6 +69,7 @@ export function NewsPagination({
         fullWidth={false}
         disabled={currentPage === totalPages}
         aria-label="Next page"
+        onClick={() => onPageChange(currentPage + 1)}
       >
         <span className="hidden sm:inline mr-1">Next</span>
         <svg

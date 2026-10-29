@@ -1,4 +1,3 @@
-// import { ApiSection } from '@/components/website/api-section'
 import { FaqSection } from '@/components/website/faq-section'
 import { FeaturesSection } from '@/components/website/features-section'
 import { HealthToolsSection } from '@/components/website/health-tools-section'

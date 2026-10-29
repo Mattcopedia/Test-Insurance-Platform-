@@ -10,9 +10,10 @@ export interface MarketplaceProductCardProps {
   name: string
   provider: string
   description: string
-  startingPrice: number
-  currency: string
-  billingCycle: string
+  startingPrice?: number
+  currency?: string
+  billingCycle?: string
+  priceLabel?: string
   href: string
 }
 
@@ -25,6 +26,7 @@ function MarketplaceProductCard({
   startingPrice,
   currency,
   billingCycle,
+  priceLabel,
   href,
 }: MarketplaceProductCardProps) {
   return (
@@ -57,7 +59,11 @@ function MarketplaceProductCard({
       <div className="flex flex-col gap-0.5 mt-auto">
         <span className="text-[11px] text-black/40 font-medium">Starting from</span>
         <span className="text-[15px] sm:text-[16px] font-bold text-black/85">
-          {formatMoney(startingPrice, currency)} / {billingCycle}
+          {priceLabel
+            ? priceLabel
+            : startingPrice != null && currency
+              ? `${formatMoney(startingPrice, currency)}${billingCycle ? ` / ${billingCycle}` : ''}`
+              : 'Price on request'}
         </span>
       </div>
     </Link>

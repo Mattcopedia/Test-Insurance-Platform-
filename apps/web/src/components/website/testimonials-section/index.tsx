@@ -1,97 +1,22 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useInView } from '@/hooks/use-in-view'
 import { cn } from '@wrapa/ui'
-import { scrollRevealClasses, scrollRevealStagger } from '@/lib/scroll-reveal'
+import { scrollRevealClasses } from '@/lib/scroll-reveal'
 import Image from 'next/image'
+import TestimonialsApi from '@/services/testimonials'
+import type { Testimonial } from '@/services/testimonials/types'
 
-const AVATAR_1 = '/assets/icons/Testimonial 1.svg'
-const AVATAR_2 = '/assets/icons/Testimonial 2.svg'
+const FALLBACK_AVATAR = '/assets/icons/Testimonial 1.svg'
 
-const TESTIMONIALS = [
-  {
-    name: 'Emily Foster',
-    role: 'Business owner',
-    avatar: AVATAR_1,
-    quote:
-      'Wrapa made managing my insurance needs a breeze. Filing a claim used to be tedious. Now it takes minutes and I can track progress in real time.',
-  },
-  {
-    name: 'Daniel Robinson',
-    role: 'Insurance Analyst',
-    avatar: AVATAR_2,
-    quote:
-      "Wrapa's platform has become indispensable for our team. The accuracy of the data has made our underwriting process smoother and more precise.",
-  },
-  {
-    name: 'Amina Okoro',
-    role: 'HR Manager',
-    avatar: AVATAR_1,
-    quote:
-      'We enrolled our entire team on an HMO plan through Wrapa in one afternoon. The corporate dashboard makes mid-year changes effortless.',
-  },
-  {
-    name: 'James Mwangi',
-    role: 'Freelance consultant',
-    avatar: AVATAR_2,
-    quote:
-      'I switched my health cover to Wrapa and cut my monthly premium significantly. The marketplace made comparing plans genuinely easy.',
-  },
-  {
-    name: 'Fatima Bello',
-    role: 'Small business owner',
-    avatar: AVATAR_1,
-    quote:
-      'Getting a quote without signing up first was exactly what I needed. I had a clear cost estimate before committing to anything.',
-  },
-  {
-    name: 'David Chen',
-    role: 'Operations lead',
-    avatar: AVATAR_2,
-    quote:
-      'Our motor fleet insurance renewal used to take weeks of back-and-forth. Wrapa handled everything digitally and we were covered in days.',
-  },
-  {
-    name: 'Grace Wanjiku',
-    role: 'Teacher',
-    avatar: AVATAR_1,
-    quote:
-      'I found an affordable family HMO plan with maternity cover on Wrapa. The hospital network finder by county was incredibly helpful.',
-  },
-  {
-    name: 'Samuel Adeyemi',
-    role: 'Startup founder',
-    avatar: AVATAR_2,
-    quote:
-      "Wrapa's get-a-quote flow is the simplest insurance experience I've had. Old-school insurers need to catch up to this level of UX.",
-  },
-  {
-    name: 'Priya Sharma',
-    role: 'Finance director',
-    avatar: AVATAR_1,
-    quote:
-      'We consolidated three separate policies onto Wrapa and saved on admin overhead. One dashboard for claims, renewals, and reporting.',
-  },
-  {
-    name: 'Michael Osei',
-    role: 'Property developer',
-    avatar: AVATAR_2,
-    quote:
-      'Property insurance for our portfolio is now managed in one place. Claims status updates in real time. No more chasing brokers by phone.',
-  },
-]
+function roleLine(item: Testimonial) {
+  return [item.authorTitle, item.organizationName].filter(Boolean).join(', ')
+}
 
-function TestimonialCard({
-  name,
-  role,
-  avatar,
-  quote,
-}: {
-  name: string
-  role: string
-  avatar: string
-  quote: string
-}) {
+function TestimonialCard({ item }: { item: Testimonial }) {
+  const role = roleLine(item)
+
   return (
     <article
       className={cn(
@@ -104,35 +29,37 @@ function TestimonialCard({
     >
       <div className="flex items-center gap-4">
         <div className="relative size-12 sm:size-14 rounded-full overflow-hidden shrink-0 bg-gray-100">
-          <Image src={avatar} alt={name} fill sizes="56px" className="object-cover" />
+          <Image
+            src={item.avatarUrl || FALLBACK_AVATAR}
+            alt=""
+            fill
+            sizes="56px"
+            className="object-cover"
+          />
         </div>
         <div className="min-w-0">
           <p className="font-sans text-[20px] sm:text-[17px] font-bold text-black/90 leading-tight">
-            {name}
+            {item.authorName}
           </p>
-          <p className="text-[18px] sm:text-[20px] text-black/45 mt-0.5">{role}</p>
+          {role ? <p className="text-[18px] sm:text-[20px] text-black/45 mt-0.5">{role}</p> : null}
         </div>
       </div>
 
-      <p className="text-[25px] sm:text-[28px] leading-[1.7] text-black/70">{quote}</p>
+      <p className="text-[18px] sm:text-[22px] lg:text-[25px] leading-[1.7] text-black/70">
+        {item.quote}
+      </p>
     </article>
   )
 }
 
-function MarqueeTrack({
-  duplicate = false,
-  className,
-}: {
-  duplicate?: boolean
-  className?: string
-}) {
+function MarqueeTrack({ items, duplicate = false }: { items: Testimonial[]; duplicate?: boolean }) {
   return (
     <div
-      className={cn('flex shrink-0 items-stretch gap-5 sm:gap-6 pr-5 sm:pr-6', className)}
+      className="flex shrink-0 items-stretch gap-5 sm:gap-6 pr-5 sm:pr-6"
       aria-hidden={duplicate || undefined}
     >
-      {TESTIMONIALS.map((t) => (
-        <TestimonialCard key={`${duplicate ? 'dup-' : ''}${t.name}`} {...t} />
+      {items.map((item) => (
+        <TestimonialCard key={`${duplicate ? 'dup-' : ''}${item.id}`} item={item} />
       ))}
     </div>
   )
@@ -140,6 +67,28 @@ function MarqueeTrack({
 
 export function TestimonialsSection() {
   const { ref: headingRef, isInView: headingInView } = useInView()
+  const [items, setItems] = useState<Testimonial[]>([])
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    let cancelled = false
+    TestimonialsApi.list({ featured: true, limit: 12 })
+      .then((result) => {
+        if (cancelled) return
+        setItems(result)
+      })
+      .catch(() => {
+        if (!cancelled) setItems([])
+      })
+      .finally(() => {
+        if (!cancelled) setReady(true)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  if (!ready || items.length === 0) return null
 
   return (
     <section className="bg-[#f7f8fa] py-14 lg:py-20 overflow-hidden">
@@ -158,18 +107,9 @@ export function TestimonialsSection() {
       </div>
 
       <div className="relative w-full overflow-hidden" aria-label="Customer testimonials">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-24 bg-linear-to-r from-[#f7f8fa] to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-24 bg-linear-to-l from-[#f7f8fa] to-transparent" />
-
-        {/* Both tracks must be direct flex siblings for -50% loop math */}
-        <div
-          className={cn(
-            'testimonials-marquee-track flex w-max will-change-transform',
-            'motion-reduce:animate-none'
-          )}
-        >
-          <MarqueeTrack />
-          <MarqueeTrack duplicate className="motion-reduce:hidden" />
+        <div className="testimonials-marquee-track flex w-max will-change-transform">
+          <MarqueeTrack items={items} />
+          <MarqueeTrack items={items} duplicate />
         </div>
       </div>
     </section>
